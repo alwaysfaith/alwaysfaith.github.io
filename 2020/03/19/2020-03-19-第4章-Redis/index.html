@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon_1.png">
+  <link rel="icon" type="image/png" href="/img/favicon_1.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Square">
+  <meta name="keywords" content="">
+  <title>第4章-Redis - 108 Keywords</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/darcula.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-19 00:00" pubdate>
+        2020年3月19日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Redis</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="4-1-Redis简介"><a href="#4-1-Redis简介" class="headerlink" title="4-1 Redis简介"></a>4-1 Redis简介</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_00_51][20200318-153004].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_02_13][20200318-153137].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_03_01][20200318-153224].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_06_38][20200318-153612].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_06_53][20200318-154029].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_07_26][20200318-153700].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_07_56][20200318-153731].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-1">https://alwaysfaith.github.io/img/redis/4-1</a> Redis简介_慕课网[00_09_49][20200318-153923].jpg)</p>
+<h2 id="4-2-Redis常用数据类型"><a href="#4-2-Redis常用数据类型" class="headerlink" title="4-2 Redis常用数据类型"></a>4-2 Redis常用数据类型</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-2">https://alwaysfaith.github.io/img/redis/4-2</a> Redis常用数据类型_慕课网[00_09_23][20200318-155013].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-2">https://alwaysfaith.github.io/img/redis/4-2</a> Redis常用数据类型_慕课网[00_09_53][20200318-155055].jpg)</p>
+<h2 id="4-3-从海量数据里查询某一固定前缀的key"><a href="#4-3-从海量数据里查询某一固定前缀的key" class="headerlink" title="4-3 从海量数据里查询某一固定前缀的key"></a>4-3 从海量数据里查询某一固定前缀的key</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-3">https://alwaysfaith.github.io/img/redis/4-3</a> 从海量数据里查询某一固定前缀的k[00_00_30][20200318-155153].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-3">https://alwaysfaith.github.io/img/redis/4-3</a> 从海量数据里查询某一固定前缀的k[00_01_37][20200318-155504].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-3">https://alwaysfaith.github.io/img/redis/4-3</a> 从海量数据里查询某一固定前缀的k[00_01_53][20200318-155326].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-3">https://alwaysfaith.github.io/img/redis/4-3</a> 从海量数据里查询某一固定前缀的k[00_03_59][20200318-155627].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-3">https://alwaysfaith.github.io/img/redis/4-3</a> 从海量数据里查询某一固定前缀的k[00_05_56][20200318-155824].jpg)</p>
+<h2 id="4-4-如何实现分布式锁"><a href="#4-4-如何实现分布式锁" class="headerlink" title="4-4 如何实现分布式锁"></a>4-4 如何实现分布式锁</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_00_49][20200318-160318].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_01_21][20200318-160401].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_03_43][20200318-160631].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_04_55][20200318-160916].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_05_46][20200318-161021].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_06_41][20200318-161502].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_06_47][20200318-161527].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-4">https://alwaysfaith.github.io/img/redis/4-4</a> 如何实现分布式锁_慕课网[00_07_28][20200318-161608].jpg)</p>
+<h2 id="4-5-如何实现异步队列"><a href="#4-5-如何实现异步队列" class="headerlink" title="4-5 如何实现异步队列"></a>4-5 如何实现异步队列</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-5">https://alwaysfaith.github.io/img/redis/4-5</a> 如何实现异步队列_慕课网[00_01_00][20200318-173702].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-5">https://alwaysfaith.github.io/img/redis/4-5</a> 如何实现异步队列_慕课网[00_02_07][20200318-173947].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-5">https://alwaysfaith.github.io/img/redis/4-5</a> 如何实现异步队列_慕课网[00_02_16][20200318-173843].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-5">https://alwaysfaith.github.io/img/redis/4-5</a> 如何实现异步队列_慕课网[00_02_38][20200318-173916].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-5">https://alwaysfaith.github.io/img/redis/4-5</a> 如何实现异步队列_慕课网[00_02_45][20200318-173922].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-5">https://alwaysfaith.github.io/img/redis/4-5</a> 如何实现异步队列_慕课网[00_04_27][20200318-174143].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-5">https://alwaysfaith.github.io/img/redis/4-5</a> 如何实现异步队列_慕课网[00_04_54][20200318-174211].jpg)</p>
+<h2 id="4-6-持久化方式之RDB"><a href="#4-6-持久化方式之RDB" class="headerlink" title="4-6 持久化方式之RDB"></a>4-6 持久化方式之RDB</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-6">https://alwaysfaith.github.io/img/redis/4-6</a> 持久化方式之RDB_慕课网1[00_03_31][20200318-174759].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-6">https://alwaysfaith.github.io/img/redis/4-6</a> 持久化方式之RDB_慕课网1[00_05_55][20200318-174919].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-6">https://alwaysfaith.github.io/img/redis/4-6</a> 持久化方式之RDB_慕课网1[00_07_01][20200318-175114].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-6">https://alwaysfaith.github.io/img/redis/4-6</a> 持久化方式之RDB_慕课网1[00_08_53][20200318-175338].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-6">https://alwaysfaith.github.io/img/redis/4-6</a> 持久化方式之RDB_慕课网1[00_09_25][20200318-175412].jpg)</p>
+<h2 id="4-7-持久化方式之AOF以及混合模式"><a href="#4-7-持久化方式之AOF以及混合模式" class="headerlink" title="4-7 持久化方式之AOF以及混合模式"></a>4-7 持久化方式之AOF以及混合模式</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_00_26][20200319-135913].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_00_54][20200319-140018].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_03_08][20200319-140245].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_04_32][20200319-140409].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_05_16][20200319-140454].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_05_57][20200319-140534].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_06_40][20200319-140617].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-7">https://alwaysfaith.github.io/img/redis/4-7</a> 持久化方式之AOF以及混合模式_[00_07_52][20200319-140729].jpg)</p>
+<h2 id="4-8-Pipeline及主从同步"><a href="#4-8-Pipeline及主从同步" class="headerlink" title="4-8 Pipeline及主从同步"></a>4-8 Pipeline及主从同步</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-8">https://alwaysfaith.github.io/img/redis/4-8</a> Pipeline及主从同步_慕课[00_01_45][20200319-140944].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-8">https://alwaysfaith.github.io/img/redis/4-8</a> Pipeline及主从同步_慕课[00_03_20][20200319-141129].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-8">https://alwaysfaith.github.io/img/redis/4-8</a> Pipeline及主从同步_慕课[00_04_11][20200319-141219].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-8">https://alwaysfaith.github.io/img/redis/4-8</a> Pipeline及主从同步_慕课[00_05_23][20200319-141338].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-8">https://alwaysfaith.github.io/img/redis/4-8</a> Pipeline及主从同步_慕课[00_06_51][20200319-141517].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-8">https://alwaysfaith.github.io/img/redis/4-8</a> Pipeline及主从同步_慕课[00_08_12][20200319-141638].jpg)</p>
+<h2 id="4-9-Redis集群"><a href="#4-9-Redis集群" class="headerlink" title="4-9 Redis集群"></a>4-9 Redis集群</h2><p>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-9">https://alwaysfaith.github.io/img/redis/4-9</a> Redis集群_慕课网[00_00_50][20200319-141751].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-9">https://alwaysfaith.github.io/img/redis/4-9</a> Redis集群_慕课网[00_01_34][20200319-142313].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-9">https://alwaysfaith.github.io/img/redis/4-9</a> Redis集群_慕课网[00_02_31][20200319-142411].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-9">https://alwaysfaith.github.io/img/redis/4-9</a> Redis集群_慕课网[00_03_21][20200319-142501].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-9">https://alwaysfaith.github.io/img/redis/4-9</a> Redis集群_慕课网[00_03_28][20200319-142508].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-9">https://alwaysfaith.github.io/img/redis/4-9</a> Redis集群_慕课网[00_04_09][20200319-142609].jpg)<br>![](<a target="_blank" rel="noopener" href="https://alwaysfaith.github.io/img/redis/4-9">https://alwaysfaith.github.io/img/redis/4-9</a> Redis集群_慕课网[00_04_43][20200319-142644].jpg)</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Interview/">Interview</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/03/23/2020-03-23-%E7%AC%AC5%E7%AB%A0-Linux/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第5章 Linux</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/16/2020-03-16-%E7%AC%AC3%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="hidden-mobile">第3章-数据库</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Square</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证336300号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=336300"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备336300号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Redis&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

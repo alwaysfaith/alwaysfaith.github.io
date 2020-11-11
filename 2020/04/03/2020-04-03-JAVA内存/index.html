@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon_1.png">
+  <link rel="icon" type="image/png" href="/img/favicon_1.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Square">
+  <meta name="keywords" content="">
+  <title>JAVA内存 - 108 Keywords</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/darcula.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-03 00:00" pubdate>
+        2020年4月3日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">JAVA内存</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h4 id="JAVA内存"><a href="#JAVA内存" class="headerlink" title="JAVA内存"></a>JAVA内存</h4><h5 id="23、介绍下Java内存区域"><a href="#23、介绍下Java内存区域" class="headerlink" title="23、介绍下Java内存区域"></a>23、介绍下Java内存区域</h5><p>线程私有的:<br>程序计数器: 程序计数器会存储当前线程正在执行的Java方法的JVM指令地址；<br>如果是在执行本地方法，则是未指定值（undefined）。<br>Java虚拟机栈: 对应着一次次的Java方法调用。<br>本地方法栈: 虚拟机对Native本地方法服务调用，也是每个线程都会创建一个。<br>线程共享的:<br>Java堆: 堆又分为新生代和老年代，是Java内存管理的核心区域，用来放置Java对象实例。<br>方法区: 也称为永久代,用于存储元（Meta）数据，如类结构信息，运行时常量池、字段、方法代码等。<br>JDK 8中将永久代移除，取而代之的是元数据区（Metaspace），元数据区使用的是直接内存  </p>
+<p>运行时常量池: 方法区的一部分。Java的常量池可以存放各种常量信息，不管是编译期生成的各种字面量，还是需要在运行时决定的符号引用。<br>JDK1.7之后JVM运行时常量池从方法区移除，在Java堆中开辟了一块区域存放运行时常量池<br>只有程序计数器不会发生OOM，Java虚拟机栈，本地方法栈，Java堆，方法区，直接内存可能发生OOM  </p>
+<p>-Xmx5G                      指定最大的堆大小<br>-Xms2G                      指定初始堆大小<br>-XX:NewSize=256m            指定新生代的最小256m的内存<br>-XX:MaxNewSize=1024m        指定新生代的最大1024m的内存<br>-XX:NewRatio=2<br>老年代与新生代(包括Eden和两个Survivor区)的大小比例。默认情况下，这个比例是2，也就是说老年代是新生代的2倍大。<br>-XX:SurvivorRatio=value<br>设置Eden与Survivor的大小比例，如果该值为8，代表一个Survivor是Eden的1/8，是整个新生代的1/10。<br>-XX:PermSize=N              方法区 (永久代) 初始大小<br>-XX:MaxPermSize=N<br>方法区 (永久代) 最大大小,超过这个值将会抛出 OutOfMemoryError 异常:java.lang.OutOfMemoryError: PermGen<br>-server -Xms512m -Xmx512m -Xss1024K<br>Server模式启动  最小堆内存512m  最大512m  每个线程栈空间1m<br>XX:MaxTenuringThreshold=20XX:CMSInitiatingOccupancyFraction=80<br>最大转为老年代检查次数20  Cms回收开启时机：内存占用80% <br>XX:+UseCMSInitiatingOccupancyOnly<br>命令JVM不基于运行时收集的数据来启动CMS垃圾收集周期    </p>
+<h5 id="1-程序计数器为什么是私有的"><a href="#1-程序计数器为什么是私有的" class="headerlink" title="1. 程序计数器为什么是私有的?"></a>1. 程序计数器为什么是私有的?</h5><p>序计数器用于记录当前线程执行的位置,如果执行的是 native 方法，那么程序计数器记录的是 undefined 地址</p>
+<h5 id="2-虚拟机栈和本地方法栈为什么是私有的"><a href="#2-虚拟机栈和本地方法栈为什么是私有的" class="headerlink" title="2. 虚拟机栈和本地方法栈为什么是私有的?"></a>2. 虚拟机栈和本地方法栈为什么是私有的?</h5><p>虚拟机栈： 每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。<br>本地方法栈：本地方法栈则为虚拟机使用到的 Native 方法服务.</p>
+<h5 id="3-一句话简单了解堆和方法区"><a href="#3-一句话简单了解堆和方法区" class="headerlink" title="3. 一句话简单了解堆和方法区"></a>3. 一句话简单了解堆和方法区</h5><p>堆和方法区是所有线程共享的资源，其中堆是进程中最大的一块内存，主要用于存放新创建的对象 (所有对象都在这里分配内存)，<br>方法区主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<h5 id="4-对象的创建"><a href="#4-对象的创建" class="headerlink" title="4. 对象的创建"></a>4. 对象的创建</h5><p>类加载检查 -&gt; 分配内存 -&gt; 初始化零值 -&gt; 设置对象头 -&gt; 执行 init 方法</p>
+<h5 id="5-Java堆"><a href="#5-Java堆" class="headerlink" title="5. Java堆"></a>5. Java堆</h5><p>也被称作GC 堆,eden 区、s0(“From”) 区、s1(“To”) 区都属于新生代，tentired 区属于老年代<br>Eden和Survivor默认比例为8:1<br>对象都会首先在 Eden 区域分配，在一次新生代垃圾回收后，如果对象还存活，则会进入 s1(“To”)，<br>并且对象的年龄还会加 1(Eden 区-&gt;Survivor 区后对象的初始年龄变为 1)，<br>当它的年龄增加到一定程度（默认为 15 岁），就会被晋升到老年代中.<br>大对象就是需要大量连续内存空间的对象（比如：字符串、数组）.   </p>
+<h5 id="6-Minor-GC-和-Full-GC-有什么不同呢？"><a href="#6-Minor-GC-和-Full-GC-有什么不同呢？" class="headerlink" title="6. Minor GC 和 Full GC 有什么不同呢？"></a>6. Minor GC 和 Full GC 有什么不同呢？</h5><p>新生代 GC（Minor GC）:指发生新生代的的垃圾收集动作，回收速度比较快。<br>老年代 GC（Major GC/Full GC）:指发生在老年代的 GC，Major GC 的速度一般会比 Minor GC 的慢 10 倍以上。   </p>
+<h5 id="6-对象已经死亡？"><a href="#6-对象已经死亡？" class="headerlink" title="6. 对象已经死亡？"></a>6. 对象已经死亡？</h5><p>引用计数法:<br>给对象中添加一个引用计数器，每当有一个地方引用它，计数器就加 1；当引用失效，计数器就减 1；任何时候计数器为 0 的对象就是不可能再被使用<br>可达性分析算法:<br>当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的。  </p>
+<h5 id="7-强引用、软引用、弱引用、幻象引用有什么区别？"><a href="#7-强引用、软引用、弱引用、幻象引用有什么区别？" class="headerlink" title="7. 强引用、软引用、弱引用、幻象引用有什么区别？"></a>7. 强引用、软引用、弱引用、幻象引用有什么区别？</h5><p>强引用：常见的普通对象引用，只要强引用指向一个对象，垃圾收集器不会碰这种对象。<br>软引用：只有当JVM认为内存不足时，才会去回收软引用指向的对象。<br>弱引用：不能使对象豁免垃圾收集，当GC发现时会被回收。<br>幻象引用：无法通过幻象引用获得对象。和没有任何引用一样，任何时候都会被垃圾回收。<br>幻象引用仅仅是提供了一种确保对象被finalize以后，做某些事情的机制。    </p>
+<h5 id="8、Java常见的垃圾收集器有哪些，垃圾收集算法？"><a href="#8、Java常见的垃圾收集器有哪些，垃圾收集算法？" class="headerlink" title="8、Java常见的垃圾收集器有哪些，垃圾收集算法？"></a>8、Java常见的垃圾收集器有哪些，垃圾收集算法？</h5><p>Serial： 最早的单线程串行垃圾回收器<br>ParNew： Serial收集器的多线程版本<br>Parallel Scavenge： 使用复制算法的多线程收集器<br>Parallel Scavenge: 类似ParNew收集器，更关注吞吐量（高效率的利用CPU）<br>CMS： 一种以获得最短停顿时间为目标的收集器，注重用户体验,非常适用 B/S 系统<br>G1： 一种兼顾吞吐量和停顿时间的 GC 实现, 是 JDK 9 以后的默认 GC 选项    </p>
+<p>标记-清除算法: 标记无用对象，进行清除回收。 缺点： 效率不高， 无法清除垃圾碎片<br>标记-整理算法: 标记无用对象，让所有存活的对象都向一端移动，然后清除掉端边界以外的内存<br>复制算法： 按照容量划分二个大小相等的内存区域，当一块用完的时候将活着对象复制到另一块上，<br>然后再把已使用的内存空间一次清理掉。 缺点： 内存使用率不高， 只有原来的一半<br>分代算法： 根据对象存活周期的不同将内存划分为几块，<br>一般是新生代基本采用复制算法， 老年代采用标记整理算法  </p>
+<h5 id="9-请介绍类加载过程，什么是双亲委派模型？"><a href="#9-请介绍类加载过程，什么是双亲委派模型？" class="headerlink" title="9. 请介绍类加载过程，什么是双亲委派模型？"></a>9. 请介绍类加载过程，什么是双亲委派模型？</h5><p>类加载过程：加载、链接（验证-&gt;准备-&gt;解析）、初始化<br>BootstrapClassLoader(启动类加载器）-&gt;<br>ExtensionClassLoader(扩展类加载器）-&gt;<br>AppClassLoader(应用程序类加载器）-&gt;<br>自定义类加载器  </p>
+<p>双亲委派模型介绍<br>如果一个类加载器收到了类加载的请求， 它首先不会自己去加载这个类， 而是把这个请求委派给父类加载器去完成。<br>所有的加载请求都会被传送到顶层的启动类加载器中， 只有当父加载无法完成加载请求时，子加载器才会尝试去加载类己来处理。<br>当父类加载器为null时，会使用启动类加载器BootstrapC1assLoader作为父类加载器。<br>双亲委派模型可以避免类的重复加载。<br>如何打破双亲委派机制<br>1、自己写一个类加载器 2、重写loadClass方法 3、重写findClass方法  </p>
+<h5 id="10-什么情况下会发生栈内存溢出。"><a href="#10-什么情况下会发生栈内存溢出。" class="headerlink" title="10. 什么情况下会发生栈内存溢出。"></a>10. 什么情况下会发生栈内存溢出。</h5><p>内存溢出是由于没被引用的对象（垃圾）过多造成JVM没有及时回收，造成的内存溢出。<br>如果出现这种现象可行代码排查：<br>一）是否App中的类中和引用变量过多使用了Static修饰 如public static Student s;<br>在类中的属性中使用 static修饰的最好只用基本类型或字符串。如public static int i = 0;<br>二）是否App中使用了大量的递归或无限递归（递归中用到了大量的建新的对象）<br>是否App中使用了大量循环或死循环（循环中用到了大量的新建的对象）   </p>
+<h5 id="11-JVM内存为什么要分成新生代，老年代，持久代。新生代中为什么要分为Eden和Survivor。"><a href="#11-JVM内存为什么要分成新生代，老年代，持久代。新生代中为什么要分为Eden和Survivor。" class="headerlink" title="11. JVM内存为什么要分成新生代，老年代，持久代。新生代中为什么要分为Eden和Survivor。"></a>11. JVM内存为什么要分成新生代，老年代，持久代。新生代中为什么要分为Eden和Survivor。</h5><p>为了提升GC效率，根据各个年代的特点使用垃圾收集算法</p>
+<h5 id="12-在自己的代码中，如果创建一个java-lang-String类，这个类是否可以被类加载器加载？为什么。"><a href="#12-在自己的代码中，如果创建一个java-lang-String类，这个类是否可以被类加载器加载？为什么。" class="headerlink" title="12. 在自己的代码中，如果创建一个java.lang.String类，这个类是否可以被类加载器加载？为什么。"></a>12. 在自己的代码中，如果创建一个java.lang.String类，这个类是否可以被类加载器加载？为什么。</h5><p>不可以，双亲委派模式会保证父类加载器先加载类，<br>BootStrap（启动类）加载器加载jdk里面的java.lang.String类，<br>自定义的java.lang.String类永远不会被加载到       </p>
+<h5 id="13-jvm为什么采用分带收集"><a href="#13-jvm为什么采用分带收集" class="headerlink" title="13. jvm为什么采用分带收集"></a>13. jvm为什么采用分带收集</h5><p>我们根据不同的年代选择适合的垃圾回收算法 比如在新生代中，每次收集都会有大量对象死去，<br>所以可以选择复制算法，而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，<br>所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Interview/">Interview</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/04/2020-04-04-JAVA%E5%B9%B6%E5%8F%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JAVA并发</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/02/2020-04-02-JAVA%E5%AE%B9%E5%99%A8/">
+                        <span class="hidden-mobile">JAVA容器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Square</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证336300号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=336300"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备336300号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "JAVA内存&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

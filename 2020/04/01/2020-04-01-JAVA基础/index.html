@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon_1.png">
+  <link rel="icon" type="image/png" href="/img/favicon_1.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Square">
+  <meta name="keywords" content="">
+  <title>JAVA基础 - 108 Keywords</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/darcula.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-01 00:00" pubdate>
+        2020年4月1日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      61
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">JAVA基础</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h4 id="JAVA基础"><a href="#JAVA基础" class="headerlink" title="JAVA基础"></a>JAVA基础</h4><h5 id="1-面向对象和面向过程的区别"><a href="#1-面向对象和面向过程的区别" class="headerlink" title="1. 面向对象和面向过程的区别"></a>1. 面向对象和面向过程的区别</h5><ul>
+<li>面向过程 ：面向过程性能比面向对象高。         </li>
+<li>面向对象 ：面向对象易维护、易复用、易扩展。面向对象性能比面向过程低。       </li>
+</ul>
+<h5 id="2-Java-语言有哪些特点-“Java是解释执行”，这句话正确吗？"><a href="#2-Java-语言有哪些特点-“Java是解释执行”，这句话正确吗？" class="headerlink" title="2. Java 语言有哪些特点? “Java是解释执行”，这句话正确吗？"></a>2. Java 语言有哪些特点? “Java是解释执行”，这句话正确吗？</h5><ol>
+<li>面向对象（封装，继承，多态）；     </li>
+<li>平台无关性（ Java 虚拟机实现平台无关性）；     </li>
+<li>垃圾回收器（GC）;     </li>
+<li>编译与解释并存；     </li>
+</ol>
+<p>Java的源代码，首先通过Javac编译成为字节码（bytecode），在通过JVM内嵌的解释器将字节码转换成为机器码。<br>HotspotJVM提供了JIT（动态编译器）编译器，能够在运行时将热点代码编译成机器码。<br>部分热点代码就属于编译执行，而不是解释执行了。    </p>
+<h5 id="3-关于-JVM-JDK-和-JRE-最详细通俗的解答"><a href="#3-关于-JVM-JDK-和-JRE-最详细通俗的解答" class="headerlink" title="3. 关于 JVM JDK 和 JRE 最详细通俗的解答"></a>3. 关于 JVM JDK 和 JRE 最详细通俗的解答</h5><p>JVM: Java虚拟机是运行 Java 字节码的虚拟机。<br>JVM: 针对不同系统使用相同的字节码，给出相同的结果。<br>JDK: 创建和编译程序环境。<br>JRE: 是 Java 运行时环境。    </p>
+<h5 id="4-Java-和-C-的区别"><a href="#4-Java-和-C-的区别" class="headerlink" title="4. Java 和 C++的区别?"></a>4. Java 和 C++的区别?</h5><p>都是面向对象的语言，支持封装、继承和多态<br>Java 不提供指针来直接访问内存，内存更加安全<br>Java 的类是单继承的，C++ 支持多重继承；Java 接口可以多继承<br>Java 有自动内存管理机制，不需要手动释放无用内存    </p>
+<h5 id="5-字符型常量和字符串常量的区别"><a href="#5-字符型常量和字符串常量的区别" class="headerlink" title="5. 字符型常量和字符串常量的区别?"></a>5. 字符型常量和字符串常量的区别?</h5><p>字符常量是单引号引起的一个字符;字符串常量是双引号引起的若干个字符<br>占内存大小:字符常量只占2个字节;字符串常量占若干个字节(char占两个字节)<br>int         4个字节<br>long        8个字节<br>float       4个字节<br>double      8个字节<br>char        2个字节<br>byte        1个字节<br>short       2个字节<br>boolean     1bit    </p>
+<h5 id="6-构造器-Constructor-是否可被-override"><a href="#6-构造器-Constructor-是否可被-override" class="headerlink" title="6. 构造器 Constructor 是否可被 override?"></a>6. 构造器 Constructor 是否可被 override?</h5><p>Constructor 不能被 override（重写）,但是可以 overload（重载）    </p>
+<h5 id="7-重载和重写的区别"><a href="#7-重载和重写的区别" class="headerlink" title="7. 重载和重写的区别"></a>7. 重载和重写的区别</h5><p>重载: 同一个类中，方法名相同，参数类型不同、个数不同、顺序不同<br>重写: 运行期间，子类对父类的允许访问的方法的进行重写    </p>
+<h5 id="8-Java-面向对象编程三大特性-封装-继承-多态"><a href="#8-Java-面向对象编程三大特性-封装-继承-多态" class="headerlink" title="8. Java 面向对象编程三大特性: 封装 继承 多态"></a>8. Java 面向对象编程三大特性: 封装 继承 多态</h5><p>抽象: 抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为。接口是对行为的抽象<br>继承: 继承是从已有类得到继承信息创建新类的过程。<br>封装: 把一个对象的属性私有化，同时提供一些可以被外界访问的属性的方法。<br>多态性: 多态性是指允许不同子类型的对象对同一消息作出不同的响应。<br>方法重载（overload）实现的是编译时的多态性（也称为前绑定）。<br>方法重写（override）实现的是运行时的多态性（也称为后绑定）。<br>在 Java 中有两种形式可以实现多态:<br>继承（多个子类对同一方法的重写）和接口（实现接口并覆盖接口中同一方法）。  </p>
+<h5 id="9-String-StringBuffer-和-StringBuilder-的区别是什么"><a href="#9-String-StringBuffer-和-StringBuilder-的区别是什么" class="headerlink" title="9. String StringBuffer 和 StringBuilder 的区别是什么?"></a>9. String StringBuffer 和 StringBuilder 的区别是什么?</h5><p>String 类中使用 final 关键字修饰字符(char)数组来保存字符串（jdk1.9使用byte数组来保存）,String 对象是不可变的。<br>StringBuffer和StringBuilder继承自AbstractStringBuilder,对象是可变的<br>StringBuffer是线程安全的，StringBuilder非线程安全    </p>
+<h5 id="10-自动装箱与拆箱"><a href="#10-自动装箱与拆箱" class="headerlink" title="10. 自动装箱与拆箱"></a>10. 自动装箱与拆箱</h5><p>装箱：将基本类型用它们对应的引用类型包装起来；<br>拆箱：将包装类型转换为基本数据类型；    </p>
+<h5 id="11-在一个静态方法内调用一个非静态成员为什么是非法的"><a href="#11-在一个静态方法内调用一个非静态成员为什么是非法的" class="headerlink" title="11. 在一个静态方法内调用一个非静态成员为什么是非法的?"></a>11. 在一个静态方法内调用一个非静态成员为什么是非法的?</h5><p>由于静态方法可以不通过对象进行调用，因此在静态方法里，不能调用其他非静态变量，也不可以访问非静态变量成员。    </p>
+<h5 id="12-在-Java-中定义一个不做事且没有参数的构造方法的作用"><a href="#12-在-Java-中定义一个不做事且没有参数的构造方法的作用" class="headerlink" title="12. 在 Java 中定义一个不做事且没有参数的构造方法的作用"></a>12. 在 Java 中定义一个不做事且没有参数的构造方法的作用</h5><p>Java 在执行子类的构造方法之前，如果没有用 super()来调用父类特定的构造方法，<br>则会调用父类中无参构造方法<br>如果父类中只定义了有参数的构造方法，而在子类的构造方法中又没有用 super()来调用父类中特定的构造方法，<br>则编译时将发生错误，<br>因为 Java 程序在父类中找不到没有参数的构造方法可供执行。<br>解决办法是在父类里加上一个不做事且没有参数的构造方法。       </p>
+<h5 id="13-接口和抽象类的区别是什么？"><a href="#13-接口和抽象类的区别是什么？" class="headerlink" title="13. 接口和抽象类的区别是什么？"></a>13. 接口和抽象类的区别是什么？</h5><p>接口的方法默认是 public，方法在接口中不能有实现(Java8接口有default默认实现）,<br>抽象类可以有非抽象的方法<br>接口中除了 static、final 变量，不能有其他变量，抽象类不一定。<br>一个类可以实现多个接口，但只能实现一个抽象类。接口可以extends继承多个接口。<br>接口方法默认修饰符是 public,抽象方法可以有 public、protected和default修饰符<br>（抽象方法不能使用 private修饰！）<br>抽象是对类的抽象，是一种模板设计，而接口是对行为的抽象，是一种行为的规范。      </p>
+<h5 id="14-成员变量与局部变量的区别有哪些？"><a href="#14-成员变量与局部变量的区别有哪些？" class="headerlink" title="14. 成员变量与局部变量的区别有哪些？"></a>14. 成员变量与局部变量的区别有哪些？</h5><p>成员变量是属于类的，局部变量是在方法中定义的变量或是方法的参数;<br>成员变量可以被 public,private,static 等修饰符所修饰，<br>局部变量不能被访问控制修饰符及 static 所修饰；但是，成员变量和局部变量都能被 final 所修饰。<br>如果成员变量是使用static修饰的，那么这个成员变量是属于类的，<br>如果没有使用static修饰，这个成员变量是属于实例的。<br>对象存在于堆内存，局部变量则存在于栈内存。      </p>
+<h5 id="15-创建一个对象用什么运算符-对象实体与对象引用有何不同"><a href="#15-创建一个对象用什么运算符-对象实体与对象引用有何不同" class="headerlink" title="15. 创建一个对象用什么运算符?对象实体与对象引用有何不同?"></a>15. 创建一个对象用什么运算符?对象实体与对象引用有何不同?</h5><p>new 运算符，new 创建对象实例（对象实例在堆内存中），<br>对象引用指向对象实例（对象引用存放在栈内存中）。<br>一个对象引用可以指向 0 个或 1 个对象（一根绳子可以不系气球，也可以系一个气球）;<br>一个对象可以有 n 个引用指向它（可以用 n 条绳子系住一个气球）。    </p>
+<h5 id="16-一个类的构造方法的作用是什么-若一个类没有声明构造方法，该程序能正确执行吗-为什么"><a href="#16-一个类的构造方法的作用是什么-若一个类没有声明构造方法，该程序能正确执行吗-为什么" class="headerlink" title="16. 一个类的构造方法的作用是什么? 若一个类没有声明构造方法，该程序能正确执行吗? 为什么?"></a>16. 一个类的构造方法的作用是什么? 若一个类没有声明构造方法，该程序能正确执行吗? 为什么?</h5><p>主要作用是完成对类对象的初始化工作。可以执行。<br>因为一个类即使没有声明构造方法也会有默认的不带参数的构造方法。       </p>
+<h5 id="17-静态方法和实例方法有何不同"><a href="#17-静态方法和实例方法有何不同" class="headerlink" title="17.  静态方法和实例方法有何不同"></a>17.  静态方法和实例方法有何不同</h5><p>在外部调用静态方法时，可以使用”类名.方法名”的方式，也可以使用”对象名.方法名”的方式。<br>而实例方法只有后面这种方式。<br>也就是说，调用静态方法可以无需创建对象。<br>静态方法在访问本类的成员时，只允许访问静态成员（即静态成员变量和静态方法），<br>而不允许访问实例成员变量和实例方法；实例方法则无此限制。     </p>
+<h5 id="18-对象的相等与指向他们的引用相等-两者有什么不同"><a href="#18-对象的相等与指向他们的引用相等-两者有什么不同" class="headerlink" title="18. 对象的相等与指向他们的引用相等,两者有什么不同?"></a>18. 对象的相等与指向他们的引用相等,两者有什么不同?</h5><p>对象的相等，比的是内存中存放的内容是否相等。<br>引用相等，比较的是他们指向的内存地址是否相等。       </p>
+<h5 id="19-在调用子类构造方法之前会先调用父类没有参数的构造方法-其目的是"><a href="#19-在调用子类构造方法之前会先调用父类没有参数的构造方法-其目的是" class="headerlink" title="19. 在调用子类构造方法之前会先调用父类没有参数的构造方法,其目的是?"></a>19. 在调用子类构造方法之前会先调用父类没有参数的构造方法,其目的是?</h5><p>帮助子类做初始化工作。    </p>
+<h5 id="20-与-equals-重要"><a href="#20-与-equals-重要" class="headerlink" title="20. == 与 equals(重要)"></a>20. == 与 equals(重要)</h5><p>== : 判断两个对象的地址是不是相等。判断两个对象是不是同一个对象。<br>(基本数据类型==比较的是值，引用数据类型==比较的是内存地址)<br>equals() : 它的作用也是判断两个对象是否相等。</p>
+<ul>
+<li>情况 1：类没有覆盖 equals()方法。则通过 equals()比较该类的两个对象时，等价于通过“==”比较这两个对象。      </li>
+<li>情况 2：类覆盖了 equals()方法。都覆盖 equals()方法来比较两个对象的内容相等；内容相等，则返回true。     </li>
+</ul>
+<h5 id="21-hashCode-与-equals-重要-为什么要有-hashCode"><a href="#21-hashCode-与-equals-重要-为什么要有-hashCode" class="headerlink" title="21. hashCode 与 equals (重要),为什么要有 hashCode"></a>21. hashCode 与 equals (重要),为什么要有 hashCode</h5><p>hashCode() 的作用是获取哈希码，也称为散列码；<br>当你把对象加入 HashSet 时，HashSet 会先计算对象的 hashcode 值来判断对象加入的位置，<br>同时也会与其他已经加入的对象的 hashcode 值作比较，<br>如果没有相符的 hashcode，HashSet 会假设对象没有重复出现。<br>但是如果发现有相同 hashcode 值的对象，这时会调用 equals（）方法来检查 hashcode 相等的对象是否真的相同。<br>如果两者相同，HashSet 就不会让其加入操作成功。如果不同的话，就会重新散列到其他位置。<br>这样我们就大大减少了 equals 的次数，相应就大大提高了执行速度。      </p>
+<h5 id="22-hashCode（）与-equals（）的相关规定"><a href="#22-hashCode（）与-equals（）的相关规定" class="headerlink" title="22. hashCode（）与 equals（）的相关规定"></a>22. hashCode（）与 equals（）的相关规定</h5><ol>
+<li>如果两个对象相等，则 hashcode 一定也是相同的    </li>
+<li>两个对象有相同的 hashcode 值，它们也不一定是相等的    </li>
+</ol>
+<h5 id="23-为什么-Java-中只有值传递？"><a href="#23-为什么-Java-中只有值传递？" class="headerlink" title="23. 为什么 Java 中只有值传递？"></a>23. 为什么 Java 中只有值传递？</h5><p>按值调用表示方法接收的是调用者提供的值，<br>按引用调用表示方法接收的是调用者提供的变量地址。<br>一个方法可以修改传递引用所对应的变量值，而不能修改传递值调用所对应的变量值。<br>Java 程序设计语言总是采用按值调用。方法得到的是所有参数值的一个拷贝，也就是说，方法不能修改传递给它的任何参数变量的内容。    </p>
+<h5 id="26-关于-final-关键字的一些总结finally、-finalize有什么不同？"><a href="#26-关于-final-关键字的一些总结finally、-finalize有什么不同？" class="headerlink" title="26. 关于 final 关键字的一些总结finally、 finalize有什么不同？"></a>26. 关于 final 关键字的一些总结finally、 finalize有什么不同？</h5><p>final修饰的类不可以继承，<br>final的变量是不可以修改的，<br>final的方法不可以重写的（override）。<br>finally则是Java保证重点代码一定要被执行的一种机制。<br>我们可以使用try-finally或者try-catch-finally来进行类似关闭JDBC连接、保证unlock锁等动作。<br>finalize是基础类java.lang.Object的一个方法，垃圾收集器将对象从内存中清除出去之前做必要的清理工作。         </p>
+<h5 id="27-Java-中的异常处理"><a href="#27-Java-中的异常处理" class="headerlink" title="27. Java 中的异常处理"></a>27. Java 中的异常处理</h5><p>Exception和Error都是继承了Throwable类<br>Error是指在程序无法处理的错误，JVM会选择线程终止。OutOfMemoryError都是Error的子类。<br>Exception是程序本身可以处理的异常。<br>Exception又分为运行时异常，受检查异常。<br>       RuntimeException(运行时异常):<br>       表示无法让程序恢复的异常，导致的原因通常是因为执行了错误的操作，建议终止程序，因此，编译器不检查这些异常。<br>       CheckedException(受检查异常):<br>       表示程序可以处理的异常，也即表示程序可以修复， 所以称之为受检查异常。<br>ArithmeticException（算术异常）<br>ClassCastException （类转换异常）<br>IllegalArgumentException （非法参数异常）<br>IndexOutOfBoundsException （下标越界异常）<br>NullPointerException （空指针异常）<br>SecurityException （安全异常）      </p>
+<h5 id="28-Java-中-IO-流分为几种"><a href="#28-Java-中-IO-流分为几种" class="headerlink" title="28. Java 中 IO 流分为几种?"></a>28. Java 中 IO 流分为几种?</h5><p>按照流的流向分，可以分为输入流和输出流；<br>按照操作单元划分，可以划分为字节流和字符流；<br>按照流的角色划分为节点流和处理流。<br>字符流是由Java虚拟机将字节转换得到的，如果不知道编码类型就很容易出现乱码问题。<br>所以，I/O流就干脆提供了一个直接操作字符的接口，方便我们平时对字符进行流操作。<br>如果音频文件、图片等媒体文件用字节流比较好，如果涉及到字符的话使用字符流比较好。<br>BIO(Blocking1/0):同步阻塞1/0模式，数据的读取写入必须阻塞在一个线程内等待其完成。模式简单使用方便，并发处理能力低。<br>NIO(NewI/O):NIO是一种同步非阻塞的I/O模型,在Java1.4中引入了NIO框架,对应java.nio包，提供了Channel，Selector，Buffer等抽象。<br>AIO(AsynchronousI/O):AIO也就是NIO2。在Java7中引入了NIO的改进版NIO2，它是异步非阻塞的IO模型。异步IO的操作是基于事件和回调机制。         </p>
+<h5 id="29-深拷贝-vs-浅拷贝"><a href="#29-深拷贝-vs-浅拷贝" class="headerlink" title="29. 深拷贝 vs 浅拷贝"></a>29. 深拷贝 vs 浅拷贝</h5><p>浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。<br>深拷贝：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。      </p>
+<h5 id="30-谈谈Java反射机制，动态代理是基于什么原理？"><a href="#30-谈谈Java反射机制，动态代理是基于什么原理？" class="headerlink" title="30. 谈谈Java反射机制，动态代理是基于什么原理？"></a>30. 谈谈Java反射机制，动态代理是基于什么原理？</h5><p>反射机制是运行状态中可以直接操作类或者对象，获取类声明的属性和方法，调用方法或者构造对象，甚至可以运行时修改类定义。<br>反射创建类实例的三种方式:<br>Class.forName(“com.A”)<br>A a= new A();<br>Class clazz = a.getClass();<br>Class clazz = A.class      </p>
+<h5 id="31-反射中，Class-forName和ClassLoader区别-。"><a href="#31-反射中，Class-forName和ClassLoader区别-。" class="headerlink" title="31. 反射中，Class.forName和ClassLoader区别 。"></a>31. 反射中，Class.forName和ClassLoader区别 。</h5><p>class.forName()除了将类的.class文件加载到jvm中之外，还会对类进行解释，执行类中的static块。<br>classLoader只会将.class文件加载到jvm中，不会执行static中的内容,只有在newInstance才会去执行static块      </p>
+<h5 id="32-描述动态代理的几种实现方式，分别说出相应的优缺点。"><a href="#32-描述动态代理的几种实现方式，分别说出相应的优缺点。" class="headerlink" title="32. 描述动态代理的几种实现方式，分别说出相应的优缺点。"></a>32. 描述动态代理的几种实现方式，分别说出相应的优缺点。</h5><p>JDK原生动态代理、CGLIB动态代理<br>JDK原生动态代理是java原生支持，不需要外部依赖，只能基于接口进行代理<br>CGLIB动态代理基于继承进行代理，无需接口，无法代理final方法的情况      </p>
+<h5 id="33-讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。"><a href="#33-讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。" class="headerlink" title="33. 讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。"></a>33. 讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。</h5><p>父类静态数据-&gt;子类静态数据-&gt;父类构造方法-&gt;子类构造方法-&gt;调用方法（子类）      </p>
+<h5 id="34-如何在父类中为子类自动完成所有的hashcode和equals实现？这么做有何优劣。"><a href="#34-如何在父类中为子类自动完成所有的hashcode和equals实现？这么做有何优劣。" class="headerlink" title="34. 如何在父类中为子类自动完成所有的hashcode和equals实现？这么做有何优劣。"></a>34. 如何在父类中为子类自动完成所有的hashcode和equals实现？这么做有何优劣。</h5><p>默认Object的equals方法，在比较两个对象的时候，是看他们是否指向同一个地址。<br>但是我们的需求是对象的某个属性相同，就相等了，我们要重写equals方法。<br>重写equals 方法就必须重写hashcode方法，否则就会降低map等集合的索引速度。        </p>
+<h5 id="35-请结合OO设计理念，谈谈访问修饰符public、private、protected、default在应用设计中的作用。"><a href="#35-请结合OO设计理念，谈谈访问修饰符public、private、protected、default在应用设计中的作用。" class="headerlink" title="35. 请结合OO设计理念，谈谈访问修饰符public、private、protected、default在应用设计中的作用。"></a>35. 请结合OO设计理念，谈谈访问修饰符public、private、protected、default在应用设计中的作用。</h5><p>关键字      类内部   本包   子类   外部包<br>public       √     √      √      √<br>protected    √     √      √      ×<br>default      √     √      ×      ×<br>private      √     ×      ×      ×            </p>
+<h5 id="36-数组和链表数据结构描述，各自的时间复杂度。"><a href="#36-数组和链表数据结构描述，各自的时间复杂度。" class="headerlink" title="36. 数组和链表数据结构描述，各自的时间复杂度。"></a>36. 数组和链表数据结构描述，各自的时间复杂度。</h5><p>数组O(1) 链表O(n)         </p>
+<h5 id="37-在jdk1-5中，引入了泛型，泛型的存在是用来解决什么问题。"><a href="#37-在jdk1-5中，引入了泛型，泛型的存在是用来解决什么问题。" class="headerlink" title="37. 在jdk1.5中，引入了泛型，泛型的存在是用来解决什么问题。"></a>37. 在jdk1.5中，引入了泛型，泛型的存在是用来解决什么问题。</h5><p>泛型的好处是在编译的时候检查类型安全，并且所有的强制转换都是自动和隐式的，提高代码的重用率。         </p>
+<h5 id="38-什么是序列化，怎么序列化，为什么序列化，反序列化会遇到什么问题，如何解决。"><a href="#38-什么是序列化，怎么序列化，为什么序列化，反序列化会遇到什么问题，如何解决。" class="headerlink" title="38. 什么是序列化，怎么序列化，为什么序列化，反序列化会遇到什么问题，如何解决。"></a>38. 什么是序列化，怎么序列化，为什么序列化，反序列化会遇到什么问题，如何解决。</h5><p>序列化是一种用来处理对象流的机制 ,所谓对象流就是将对象的内容进行流化。<br>序列化是为了解决在对对象流进行读写操作时所引发的问题。<br>序列化的实现：将需要被序列化的类实现Serializable接口，该接口没有需要实现的方法，         </p>
+<h5 id="39-java8的新特性。"><a href="#39-java8的新特性。" class="headerlink" title="39. java8的新特性。"></a>39. java8的新特性。</h5><p>1 Lambda表达式和函数式接口<br>2.2 接口的默认方法和静态方法<br>2.4 重复注解<br>4.1 Optional<br>4.2 Streams<br>4.3 Date/Time API(JSR 310)<br>4.5 Java 8 方法引用   </p>
+<h5 id="40、静态嵌套类（Static-Nested-Class）和内部类（Inner-Class）的不同？"><a href="#40、静态嵌套类（Static-Nested-Class）和内部类（Inner-Class）的不同？" class="headerlink" title="40、静态嵌套类（Static Nested Class）和内部类（Inner Class）的不同？"></a>40、静态嵌套类（Static Nested Class）和内部类（Inner Class）的不同？</h5><p>静态嵌套类是被声明为静态（static）的内部类，它可以不依赖于外部类实例被实例化。<br>内部类需要在外部类实例化后才能实例化。      </p>
+<h5 id="41、switch是否能作用在byte上，是否能作用在long上，是否能作用在String上？"><a href="#41、switch是否能作用在byte上，是否能作用在long上，是否能作用在String上？" class="headerlink" title="41、switch是否能作用在byte上，是否能作用在long上，是否能作用在String上？"></a>41、switch是否能作用在byte上，是否能作用在long上，是否能作用在String上？</h5><p>在Java 5以前，switch(expr)中，expr只能是byte、short、char、int；<br>从Java 5开始，Java中引入了枚举类型，expr也可以是enum类型；<br>从Java 7开始，expr还可以是字符串（String），<br>但是长整型（long）在目前所有的版本中都是不可以的。  </p>
+<h5 id="42、String-s-new-String-“xyz”-创建了几个字符串对象？"><a href="#42、String-s-new-String-“xyz”-创建了几个字符串对象？" class="headerlink" title="42、String s = new String(“xyz”);创建了几个字符串对象？"></a>42、String s = new String(“xyz”);创建了几个字符串对象？</h5><p>两个对象，一个是静态区的”xyz”，一个是用new创建在堆上的对象。   </p>
+<h5 id="43、讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。"><a href="#43、讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。" class="headerlink" title="43、讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。"></a>43、讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当new的时候，他们的执行顺序。</h5><div class="hljs"><pre><code class="hljs csharp"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> &#123;
+    <span class="hljs-keyword">static</span> &#123;
+        System.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">&quot;1&quot;</span>);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>)</span> &#123;
+        System.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">&quot;2&quot;</span>);
+    &#125;
+&#125;
+<span class="hljs-keyword">class</span> <span class="hljs-title">B</span> <span class="hljs-title">extends</span> <span class="hljs-title">A</span> &#123;
+    <span class="hljs-keyword">static</span> &#123;
+        System.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">&quot;a&quot;</span>);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>)</span> &#123;
+        System.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">&quot;b&quot;</span>);
+    &#125;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span> &#123;
+    A ab = <span class="hljs-keyword">new</span> B();
+    ab = <span class="hljs-keyword">new</span> B();
+&#125;</code></pre></div>
+<p>执行结果：1a2b2b。<br>创建对象时构造器的调用顺序是：先初始化静态成员，然后调用父类构造器，再初始化非静态成员，最后调用自身构造器。     </p>
+<h5 id="44、throw和throws的区别"><a href="#44、throw和throws的区别" class="headerlink" title="44、throw和throws的区别"></a>44、throw和throws的区别</h5><p>throw 则是指抛出的一个具体异常类型<br>throws 是用来声明一个方法可能抛出的所有异常信息          </p>
+<h5 id="45、int和Integer有什么区别？谈谈Integer的值缓存范围"><a href="#45、int和Integer有什么区别？谈谈Integer的值缓存范围" class="headerlink" title="45、int和Integer有什么区别？谈谈Integer的值缓存范围"></a>45、int和Integer有什么区别？谈谈Integer的值缓存范围</h5><p>Integer是int对应的包装类。<br>装箱．将基本类型用它们对应的引用类型包装起来；<br>拆箱：将包装类型转换为基本数据类型；<br>在Java 5中，引入了自动装箱和自动拆箱功能（boxing/unboxing）。<br>关于Integer的值缓存， 这个值默认缓存是-128到127之间。   </p>
+<div class="hljs"><pre><code class="hljs pgsql"><span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;
+       <span class="hljs-type">Integer</span> a = <span class="hljs-built_in">new</span> <span class="hljs-type">Integer</span>(<span class="hljs-number">3</span>);
+       <span class="hljs-type">Integer</span> b = <span class="hljs-number">3</span>;// 将<span class="hljs-number">3</span>自动装箱成<span class="hljs-type">Integer</span>类型
+       <span class="hljs-type">int</span> c = <span class="hljs-number">3</span>;
+       <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(a == b); // <span class="hljs-keyword">false</span> 两个引用没有引用同一对象
+       <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(a == c); // <span class="hljs-keyword">true</span>  a自动拆箱成<span class="hljs-type">int</span>类型再和c比较
+       <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(b == c); // <span class="hljs-keyword">true</span>  b自动拆箱成<span class="hljs-type">int</span>类型再和c比较
+&#125;</code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">public</span> static <span class="hljs-built_in">void</span> main(String[] args) &#123;
+    Integer f1=<span class="hljs-number">100</span>,f2=<span class="hljs-number">100</span>,f3=<span class="hljs-number">150</span>,f4=<span class="hljs-number">150</span>;
+    System.<span class="hljs-keyword">out</span>.println(f1==f2); <span class="hljs-comment">//true</span>
+    System.<span class="hljs-keyword">out</span>.println(f3==f4); <span class="hljs-comment">//false</span>
+&#125;</code></pre></div>
+<p>如果整型字面量的值在-128到127之间，那么不会new新的Integer对象，而是直接引用常量池中的Integer对象，<br>所以上面的面试题中f1==f2的结果是true，而f3==f4的结果是false。  </p>
+<h5 id="46、Java有几种文件拷贝方式？哪一种最高效？"><a href="#46、Java有几种文件拷贝方式？哪一种最高效？" class="headerlink" title="46、Java有几种文件拷贝方式？哪一种最高效？"></a>46、Java有几种文件拷贝方式？哪一种最高效？</h5><p>利用java.io类库，直接为源文件构建一个FileInputStream读取，然后再为目标文件构建一个FileOutputStream，完成写入工作。</p>
+<div class="hljs"><pre><code class="hljs gradle"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> copyFileByStream(<span class="hljs-keyword">File</span> <span class="hljs-keyword">source</span>, <span class="hljs-keyword">File</span> des) <span class="hljs-keyword">throws</span> IOException &#123;
+      <span class="hljs-keyword">try</span> (InputStream is = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-keyword">source</span>);
+           OutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(des);) &#123;
+          <span class="hljs-keyword">byte</span>[] bufer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];
+          <span class="hljs-keyword">int</span> length;
+          <span class="hljs-keyword">while</span> ((length = is.<span class="hljs-keyword">read</span>(bufer)) &gt; <span class="hljs-number">0</span>) &#123;
+              os.<span class="hljs-keyword">write</span>(bufer, <span class="hljs-number">0</span>, length);
+          &#125;
+      &#125;
+  &#125;</code></pre></div>
+<p>或者，利用java.nio类库提供的transferTo或transferFrom方法实现。  </p>
+<div class="hljs"><pre><code class="hljs gradle"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> copyFileByChannel(<span class="hljs-keyword">File</span> <span class="hljs-keyword">source</span>, <span class="hljs-keyword">File</span> des) <span class="hljs-keyword">throws</span> IOException &#123;
+       <span class="hljs-keyword">try</span> (FileChannel sourceChannel = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-keyword">source</span>)
+               .getChannel();
+            FileChannel targetChannel = <span class="hljs-keyword">new</span> FileOutputStream(des).getChannel
+                    ();) &#123;
+           <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> <span class="hljs-keyword">count</span> = sourceChannel.<span class="hljs-keyword">size</span>(); <span class="hljs-keyword">count</span> &gt; <span class="hljs-number">0</span>; ) &#123;
+               <span class="hljs-keyword">long</span> transferred = sourceChannel.transferTo(
+                       sourceChannel.position(), <span class="hljs-keyword">count</span>, targetChannel);
+               sourceChannel.position(sourceChannel.position() + transferred);
+               <span class="hljs-keyword">count</span> -= transferred;
+           &#125;
+       &#125;
+   &#125;</code></pre></div>
+<p>又或者，Java标准类库本身已经提供了几种Files.copy的实现。<br>对于Copy的效率，总体上来说， NIO transferTo/From的方式可能更快，<br>因为它更能利用现代操作系统底层机制，避免不必要拷贝和上下文切换      </p>
+<h5 id="47、类ExampleA继承Exception，类ExampleB继承ExampleA。"><a href="#47、类ExampleA继承Exception，类ExampleB继承ExampleA。" class="headerlink" title="47、类ExampleA继承Exception，类ExampleB继承ExampleA。"></a>47、类ExampleA继承Exception，类ExampleB继承ExampleA。</h5><div class="hljs"><pre><code class="hljs arduino"><span class="hljs-keyword">try</span> &#123;
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ExampleB(<span class="hljs-string">&quot;b&quot;</span>);
+&#125; <span class="hljs-keyword">catch</span> (ExampleA e) &#123;
+    System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;ExampleA&quot;</span>);
+&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+    System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;Exception&quot;</span>);
+&#125;</code></pre></div>
+<p>输出：ExampleA。（根据里氏代换原则[能使用父类型的地方一定能使用子类型]，抓取ExampleA类型异常的catch块能够抓住try块中抛出的ExampleB类型的异常）</p>
+<div class="hljs"><pre><code class="java">class A extends Exception &#123;&#125;
+class B extends A &#123;&#125;
+public class Test &#123;
+      public static void main(String[] args) &#123;
+            try &#123;
+                try &#123;
+                    throw new B();
+                &#125; catch (A a) &#123;
+                    System.out.println(&quot;Caught A&quot;);
+                    throw a;
+                &#125;
+            &#125;
+            catch (B b) &#123;
+                System.out.println(&quot;Caught B&quot;);
+                return;
+            &#125;
+            finally &#123;
+                System.out.println(&quot;Hello World!&quot;);
+            &#125;
+        &#125;
+      &#125;
+// Caught A
+// Caught B
+// Hello World!</code></pre></div>
+<p>先执行try -&gt; 再执行finally -&gt; 最后执行return<br>如果finally有返回值会返回finally值<br>如果try抛出异常会执行catch代码块,再执行finally语句,catch代码块有return返回return值</p>
+<h5 id="48、讲一下类加载机制"><a href="#48、讲一下类加载机制" class="headerlink" title="48、讲一下类加载机制"></a>48、讲一下类加载机制</h5><p>将我们编译好的.class文件加载到内存当中，将静态数据放进方法区内，并在堆中创建对象，<br>用来封装方法区中的数据结构，并提供了访问数据的入口<br>类的加载过程包括了加载、验证、准备、解析、初始化五个阶段。</p>
+<h5 id="49、讲讲java字符串常量池"><a href="#49、讲讲java字符串常量池" class="headerlink" title="49、讲讲java字符串常量池"></a>49、讲讲java字符串常量池</h5><p>因为java中字符串是不可变对象，jvm在字符串池中仅保存一份字符串常量，用于优化内存分配。这个过程称为驻留（interning）。<br>通过直接赋值方式创建字符串变量，jvm在字符串池搜索相应的值。如果找到，java编译器简单返回该内存地址引用，无需额外分配内存。<br>没找到，字符串值被增加至字符串池中驻留，并返回其引用。</p>
+<h5 id="50、Spring加载机制"><a href="#50、Spring加载机制" class="headerlink" title="50、Spring加载机制"></a>50、Spring加载机制</h5>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Interview/">Interview</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/02/2020-04-02-JAVA%E5%AE%B9%E5%99%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JAVA容器</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/30/2020-04-07-JavaGuide/">
+                        <span class="hidden-mobile">JavaGuide</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Square</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证336300号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=336300"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备336300号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "JAVA基础&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

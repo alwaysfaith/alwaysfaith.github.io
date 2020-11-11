@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon_1.png">
+  <link rel="icon" type="image/png" href="/img/favicon_1.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Map接口在1.8新增方法 - 108 Keywords</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/darcula.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/wallhaven-2ejpry.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-14 10:00" pubdate>
+        2020年1月14日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Map接口在1.8新增方法</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>V getOrDefault(Object key, V defaultValue)</li>
+<li>void replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function)</li>
+<li>V putIfAbsent(K key, V value)</li>
+<li>boolean remove(Object key, Object value)</li>
+<li>replace</li>
+<li>default boolean replace(K key, V oldValue, V newValue)</li>
+<li>V replace(K key, V value)</li>
+<li>V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)</li>
+<li>V computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)</li>
+<li>V compute(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)</li>
+<li>V merge(K key, V value, BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction)<h2 id="Map接口在1-8"><a href="#Map接口在1-8" class="headerlink" title="Map接口在1.8"></a>Map接口在1.8</h2></li>
+<li>getOrDefault</li>
+<li>replaceAll</li>
+<li>putIfAbsent</li>
+<li>remove</li>
+<li>replace</li>
+<li>computeIfAbsent</li>
+<li>computeIfPresent</li>
+<li>compute</li>
+<li>merge<h3 id="V-getOrDefault-Object-key-V-defaultValue"><a href="#V-getOrDefault-Object-key-V-defaultValue" class="headerlink" title="V getOrDefault(Object key, V defaultValue)"></a>V getOrDefault(Object key, V defaultValue)</h3>这可以说是最常用的方法了吧,获取指定key的value,当key不存在的时候返回一个默认值,也就是第二个参数.<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">getOrDefault</span><span class="hljs-params">(Object key, V defaultValue)</span> </span>&#123;
+       V v;
+       <span class="hljs-keyword">return</span> (((v = get(key)) != <span class="hljs-keyword">null</span>) || containsKey(key))
+           ? v
+           : defaultValue;
+   &#125;</code></pre></div>
+<h3 id="void-replaceAll-BiFunction-lt-super-K-super-V-extends-V-gt-function"><a href="#void-replaceAll-BiFunction-lt-super-K-super-V-extends-V-gt-function" class="headerlink" title="void replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function)"></a>void replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function)</h3>将所有value替换成给定lambda的计算结果,lambda的作用为根据key和value算出新的value.</li>
+</ul>
+<p>源代码如下:</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">replaceAll</span><span class="hljs-params">(BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; function)</span> </span>&#123;
+        Objects.requireNonNull(function);
+        <span class="hljs-keyword">for</span> (Map.Entry&lt;K, V&gt; entry : entrySet()) &#123;
+            K k;
+            V v;
+            <span class="hljs-keyword">try</span> &#123;
+                k = entry.getKey();
+                v = entry.getValue();
+            &#125; <span class="hljs-keyword">catch</span>(IllegalStateException ise) &#123;
+                <span class="hljs-comment">// this usually means the entry is no longer in the map.</span>
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException(ise);
+            &#125;
+
+            <span class="hljs-comment">// ise thrown from function is not a cme.</span>
+            v = function.apply(k, v);
+
+            <span class="hljs-keyword">try</span> &#123;
+                entry.setValue(v);
+            &#125; <span class="hljs-keyword">catch</span>(IllegalStateException ise) &#123;
+                <span class="hljs-comment">// this usually means the entry is no longer in the map.</span>
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException(ise);
+            &#125;
+        &#125;
+    &#125;</code></pre></div>
+<p>示例代码如下:</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
+   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> </span>&#123;
+       Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+       test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+       test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+       System.out.println(test.toString());
+
+       test.replaceAll((k, v) -&gt; k + v);
+       System.out.println(test.toString());
+   &#125;</code></pre></div>
+<p>这段代码中传递了一个lambda,作用是将key和value相加作为新的value.</p>
+<p>输出结果如下:</p>
+<div class="hljs"><pre><code class="hljs java">&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">2</span>, <span class="hljs-number">2</span>=<span class="hljs-number">4</span>&#125;</code></pre></div>
+<h3 id="V-putIfAbsent-K-key-V-value"><a href="#V-putIfAbsent-K-key-V-value" class="headerlink" title="V putIfAbsent(K key, V value)"></a>V putIfAbsent(K key, V value)</h3><p>当key不存在的时候,写入新值.始终返回执行操作后的新值.</p>
+<p>源代码如下:</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">putIfAbsent</span><span class="hljs-params">(K key, V value)</span> </span>&#123;
+        V v = get(key);
+        <span class="hljs-keyword">if</span> (v == <span class="hljs-keyword">null</span>) &#123;
+            v = put(key, value);
+        &#125;
+
+        <span class="hljs-keyword">return</span> v;
+    &#125;</code></pre></div>
+<p>测试代码及输出如下:</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> </span>&#123;
+        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+        test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+        System.out.println(test.toString());
+
+        test.putIfAbsent(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
+        test.putIfAbsent(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>);
+        System.out.println(test.toString());
+    &#125;
+------------------------
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>, <span class="hljs-number">3</span>=<span class="hljs-number">3</span>&#125;
+</code></pre></div>
+<h3 id="boolean-remove-Object-key-Object-value"><a href="#boolean-remove-Object-key-Object-value" class="headerlink" title="boolean remove(Object key, Object value)"></a>boolean remove(Object key, Object value)</h3><p>如果给定的key在map中的value与给定值相等,则移除并且返回true,否则返回false.</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Object key, Object value)</span> </span>&#123;
+        Object curValue = get(key);
+        <span class="hljs-keyword">if</span> (!Objects.equals(curValue, value) ||
+            (curValue == <span class="hljs-keyword">null</span> &amp;&amp; !containsKey(key))) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        &#125;
+        remove(key);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    &#125;</code></pre></div>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p>这个有两个重载方法.</p>
+<h3 id="default-boolean-replace-K-key-V-oldValue-V-newValue"><a href="#default-boolean-replace-K-key-V-oldValue-V-newValue" class="headerlink" title="default boolean replace(K key, V oldValue, V newValue)"></a>default boolean replace(K key, V oldValue, V newValue)</h3><p>当key在map中的value与给定的oldValue相等,则用newValue替换掉并且返回true,否则返回false.</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">replace</span><span class="hljs-params">(K key, V oldValue, V newValue)</span> </span>&#123;
+        Object curValue = get(key);
+        <span class="hljs-keyword">if</span> (!Objects.equals(curValue, oldValue) ||
+            (curValue == <span class="hljs-keyword">null</span> &amp;&amp; !containsKey(key))) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        &#125;
+        put(key, newValue);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    &#125;
+</code></pre></div>
+<h3 id="V-replace-K-key-V-value"><a href="#V-replace-K-key-V-value" class="headerlink" title="V replace(K key, V value)"></a>V replace(K key, V value)</h3><p>当key存在,就替换掉并且返回新值,否则返回null.</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">replace</span><span class="hljs-params">(K key, V value)</span> </span>&#123;
+        V curValue;
+        <span class="hljs-keyword">if</span> (((curValue = get(key)) != <span class="hljs-keyword">null</span>) || containsKey(key)) &#123;
+            curValue = put(key, value);
+        &#125;
+        <span class="hljs-keyword">return</span> curValue;
+    &#125;
+</code></pre></div>
+<h3 id="V-computeIfAbsent-K-key-Function-lt-super-K-extends-V-gt-mappingFunction"><a href="#V-computeIfAbsent-K-key-Function-lt-super-K-extends-V-gt-mappingFunction" class="headerlink" title="V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)"></a>V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)</h3><p>如果key不存在,则使用lambda计算并写入新值.永远返回执行操作后的新值.(可以存在,不做任何操作);放回计算的新值.</p>
+<p>这个方法可以为一些耗时或者耗资源的操作构建本地缓存,当元素存在时直接返回,当不存在的时候进行耗时进行并存储,下一次可以直接返回.</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">computeIfAbsent</span><span class="hljs-params">(K key,</span></span>
+<span class="hljs-function"><span class="hljs-params">            Function&lt;? <span class="hljs-keyword">super</span> K, ? extends V&gt; mappingFunction)</span> </span>&#123;
+        Objects.requireNonNull(mappingFunction);
+        V v;
+        <span class="hljs-keyword">if</span> ((v = get(key)) == <span class="hljs-keyword">null</span>) &#123;
+            V newValue;
+            <span class="hljs-keyword">if</span> ((newValue = mappingFunction.apply(key)) != <span class="hljs-keyword">null</span>) &#123;
+                put(key, newValue);
+                <span class="hljs-keyword">return</span> newValue;
+            &#125;
+        &#125;
+
+        <span class="hljs-keyword">return</span> v;
+    &#125;</code></pre></div>
+<p>测试代码及输出如下:</p>
+<div class="hljs"><pre><code class="hljs java">
+    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span> </span>&#123;
+        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+        test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+        System.out.println(test.toString());
+
+        <span class="hljs-comment">// 1 存在,不做任何操作</span>
+        test.computeIfAbsent(<span class="hljs-number">1</span>, key -&gt; key + <span class="hljs-number">2</span>);
+        <span class="hljs-comment">// 3 不存在,将3 +2 = 5.</span>
+        test.computeIfAbsent(<span class="hljs-number">3</span>, key -&gt; key + <span class="hljs-number">2</span>);
+        System.out.println(test.toString());
+    &#125;
+
+------------------------
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>, <span class="hljs-number">3</span>=<span class="hljs-number">5</span>&#125;</code></pre></div>
+
+<h3 id="V-computeIfPresent-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction"><a href="#V-computeIfPresent-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction" class="headerlink" title="V computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)"></a>V computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)</h3><p>当key存在时,计算新值,如果新值不为空,则将新值写入,如果新值为空,则移除掉此key.返回新值或者null.</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">computeIfPresent</span><span class="hljs-params">(K key,</span></span>
+<span class="hljs-function"><span class="hljs-params">            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>&#123;
+        Objects.requireNonNull(remappingFunction);
+        V oldValue;
+        <span class="hljs-keyword">if</span> ((oldValue = get(key)) != <span class="hljs-keyword">null</span>) &#123;
+            V newValue = remappingFunction.apply(key, oldValue);
+            <span class="hljs-keyword">if</span> (newValue != <span class="hljs-keyword">null</span>) &#123;
+                put(key, newValue);
+                <span class="hljs-keyword">return</span> newValue;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                remove(key);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        &#125;
+    &#125;</code></pre></div>
+<p>测试代码及输出如下:</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test4</span><span class="hljs-params">()</span> </span>&#123;
+        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+        test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+        System.out.println(test.toString());
+
+        <span class="hljs-comment">// 1 存在,计算</span>
+        test.computeIfPresent(<span class="hljs-number">1</span>, (key, oldValue) -&gt; key + oldValue + <span class="hljs-number">2</span>);
+        <span class="hljs-comment">// 3 不存在,不作操作</span>
+        test.computeIfPresent(<span class="hljs-number">3</span>, (key, oldValue) -&gt; key + oldValue +  <span class="hljs-number">2</span>);
+        System.out.println(test.toString());
+    &#125;
+-------------------------------
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">4</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;</code></pre></div>
+<p>这个方法基本上是上一个方法的存在版本,但是要注意传入的lambda,参数是两个,computeIfAbsent的lambda传入key,计算值. 而computeIfPresent传入key和旧的value,并且由他们两个计算得到新的值.</p>
+<h3 id="V-compute-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction"><a href="#V-compute-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction" class="headerlink" title="V compute(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)"></a>V compute(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)</h3><p>直接计算新值,新值为空,则删除key并且返回null,新值不为空则写入并且返回新值.</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">compute</span><span class="hljs-params">(K key,</span></span>
+<span class="hljs-function"><span class="hljs-params">            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>&#123;
+        Objects.requireNonNull(remappingFunction);
+        V oldValue = get(key);
+
+        V newValue = remappingFunction.apply(key, oldValue);
+        <span class="hljs-keyword">if</span> (newValue == <span class="hljs-keyword">null</span>) &#123;
+            <span class="hljs-comment">// delete mapping</span>
+            <span class="hljs-keyword">if</span> (oldValue != <span class="hljs-keyword">null</span> || containsKey(key)) &#123;
+                <span class="hljs-comment">// something to remove</span>
+                remove(key);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                <span class="hljs-comment">// nothing to do. Leave things as they were.</span>
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-comment">// add or replace old mapping</span>
+            put(key, newValue);
+            <span class="hljs-keyword">return</span> newValue;
+        &#125;
+    &#125;</code></pre></div>
+
+<p>测试代码及输出如下:</p>
+<div class="hljs"><pre><code class="hljs java"> <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test5</span><span class="hljs-params">()</span> </span>&#123;
+        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+        test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+        System.out.println(test.toString());
+
+        test.compute(<span class="hljs-number">1</span>, (key, oldValue) -&gt; key + <span class="hljs-number">2</span>);
+        test.compute(<span class="hljs-number">3</span>, (key, oldValue) -&gt; key + <span class="hljs-number">2</span>);
+        test.compute(<span class="hljs-number">2</span>, (key, oldValue) -&gt; <span class="hljs-keyword">null</span>);
+        System.out.println(test.toString());
+    &#125;
+----------------
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">3</span>, <span class="hljs-number">3</span>=<span class="hljs-number">5</span>&#125;</code></pre></div>
+<p>测试代码中对2进行compute-&gt;null,结果是2被删除.</p>
+<h3 id="V-merge-K-key-V-value-BiFunction-lt-super-V-super-V-extends-V-gt-remappingFunction"><a href="#V-merge-K-key-V-value-BiFunction-lt-super-V-super-V-extends-V-gt-remappingFunction" class="headerlink" title="V merge(K key, V value, BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction)"></a>V merge(K key, V value, BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction)</h3><p>使用旧值和给定的value来计算新值,如果新值为空,则删除key,不为空则写入并且返回.</p>
+<p>注意:如果旧值为空,也就是原有的key不存在,新值等于给定值,不会再进行计算.因此下方的测试代码3=10而不是12.</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">merge</span><span class="hljs-params">(K key, V value,</span></span>
+<span class="hljs-function"><span class="hljs-params">            BiFunction&lt;? <span class="hljs-keyword">super</span> V, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>&#123;
+        Objects.requireNonNull(remappingFunction);
+        Objects.requireNonNull(value);
+        V oldValue = get(key);
+        V newValue = (oldValue == <span class="hljs-keyword">null</span>) ? value :
+                   remappingFunction.apply(oldValue, value);
+        <span class="hljs-keyword">if</span>(newValue == <span class="hljs-keyword">null</span>) &#123;
+            remove(key);
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            put(key, newValue);
+        &#125;
+        <span class="hljs-keyword">return</span> newValue;
+    &#125;</code></pre></div>
+<p>测试代码及输出如下:</p>
+<div class="hljs"><pre><code class="hljs java">    <span class="hljs-meta">@Test</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test6</span><span class="hljs-params">()</span> </span>&#123;
+        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+        test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+        System.out.println(test.toString());
+
+        test.merge(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, (v, oldV) -&gt; v + oldV + <span class="hljs-number">2</span>);
+        test.merge(<span class="hljs-number">3</span>, <span class="hljs-number">10</span>, (v, oldV) -&gt; v + oldV + <span class="hljs-number">2</span>);
+        test.merge(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>, (v, oldV) -&gt; <span class="hljs-keyword">null</span>);
+        System.out.println(test.toString());
+    &#125;
+--------------------------
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
+&#123;<span class="hljs-number">1</span>=<span class="hljs-number">13</span>, <span class="hljs-number">3</span>=<span class="hljs-number">10</span>&#125;</code></pre></div>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java8/">Java8</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/01/17/2020-01-17-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%89%E5%85%A8%E7%B1%BB/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">单例模式的安全类</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Square</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证336300号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=336300"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备336300号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Map接口在1.8新增方法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

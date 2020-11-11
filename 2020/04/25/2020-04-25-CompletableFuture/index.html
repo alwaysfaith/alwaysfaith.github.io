@@ -1,0 +1,905 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon_1.png">
+  <link rel="icon" type="image/png" href="/img/favicon_1.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Square">
+  <meta name="keywords" content="">
+  <title>CompletableFuture - 108 Keywords</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/darcula.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-25 00:00" pubdate>
+        2020年4月25日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      53
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">CompletableFuture</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h3 id="1-runAsync-和-supplyAsync方法"><a href="#1-runAsync-和-supplyAsync方法" class="headerlink" title="1. runAsync 和 supplyAsync方法"></a>1. runAsync 和 supplyAsync方法</h3><p>CompletableFuture 提供了四个静态方法来创建一个异步操作。</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> CompletableFuture&lt;Void&gt; <span class="hljs-title">runAsync</span><span class="hljs-params">(Runnable runnable)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> CompletableFuture&lt;Void&gt; <span class="hljs-title">runAsync</span><span class="hljs-params">(Runnable runnable, Executor executor)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;U&gt; CompletableFuture&lt;U&gt; <span class="hljs-title">supplyAsync</span><span class="hljs-params">(Supplier&lt;U&gt; supplier)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;U&gt; CompletableFuture&lt;U&gt; <span class="hljs-title">supplyAsync</span><span class="hljs-params">(Supplier&lt;U&gt; supplier, Executor executor)</span></span></code></pre></div>
+<p>没有指定Executor的方法会使用ForkJoinPool.commonPool() 作为它的线程池执行异步代码。<br>如果指定线程池，则使用指定的线程池运行。以下所有的方法都类同。    </p>
+<ul>
+<li>runAsync方法不支持返回值。</li>
+<li>supplyAsync可以支持返回值。</li>
+</ul>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//无返回值</span>
+CompletableFuture&lt;Void&gt; future = CompletableFuture.runAsync(() -&gt; &#123;
+    <span class="hljs-keyword">try</span> &#123;
+        TimeUnit.SECONDS.sleep(<span class="hljs-number">1</span>);
+    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+        System.err.println(e.getMessage());
+    &#125;
+    System.out.println(<span class="hljs-string">&quot;run end ...&quot;</span>);
+&#125;);
+future.join();
+<span class="hljs-comment">//有返回值</span>
+CompletableFuture&lt;Long&gt; future2 = CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">try</span> &#123;
+        TimeUnit.SECONDS.sleep(<span class="hljs-number">1</span>);
+    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+        System.err.println(e.getMessage());
+    &#125;
+    System.out.println(<span class="hljs-string">&quot;run end ...&quot;</span>);
+    <span class="hljs-keyword">return</span> System.currentTimeMillis();
+&#125;);
+<span class="hljs-keyword">long</span> time = future2.join();
+System.out.println(<span class="hljs-string">&quot;time = &quot;</span> + time);</code></pre></div>
+<h3 id="2-计算结果完成时的回调方法"><a href="#2-计算结果完成时的回调方法" class="headerlink" title="2. 计算结果完成时的回调方法"></a>2. 计算结果完成时的回调方法</h3><p>当CompletableFuture的计算结果完成，或者抛出异常的时候，可以执行特定的Action。主要是下面的方法：</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> CompletableFuture&lt;T&gt; <span class="hljs-title">whenComplete</span><span class="hljs-params">(BiConsumer&lt;? <span class="hljs-keyword">super</span> T,? <span class="hljs-keyword">super</span> Throwable&gt; action)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletableFuture&lt;T&gt; <span class="hljs-title">whenCompleteAsync</span><span class="hljs-params">(BiConsumer&lt;? <span class="hljs-keyword">super</span> T,? <span class="hljs-keyword">super</span> Throwable&gt; action)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletableFuture&lt;T&gt; <span class="hljs-title">whenCompleteAsync</span><span class="hljs-params">(BiConsumer&lt;? <span class="hljs-keyword">super</span> T,? <span class="hljs-keyword">super</span> Throwable&gt; action, Executor executor)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletableFuture&lt;T&gt; <span class="hljs-title">exceptionally</span><span class="hljs-params">(Function&lt;Throwable,? extends T&gt; fn)</span></span></code></pre></div>
+<p>可以看到Action的类型是BiConsumer&lt;? super T,? super Throwable&gt;它可以处理正常的计算结果，或者异常情况。</p>
+<ul>
+<li>whenComplete 和 whenCompleteAsync 的区别：</li>
+<li>whenComplete：是执行当前任务的线程执行继续执行 whenComplete 的任务。</li>
+<li>whenCompleteAsync：是执行把 whenCompleteAsync 这个任务继续提交给线程池来进行执行。</li>
+</ul>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Long&gt; future1 = CompletableFuture.supplyAsync(() -&gt; &#123;
+        <span class="hljs-keyword">try</span> &#123;
+            TimeUnit.SECONDS.sleep(<span class="hljs-number">1</span>);
+        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+            System.err.println(e.getMessage());
+        &#125;
+        System.out.println(<span class="hljs-string">&quot;run end ...&quot;</span>);
+        <span class="hljs-keyword">return</span> System.currentTimeMillis();
+    &#125;).whenComplete((t, action) -&gt; System.err.println(<span class="hljs-string">&quot;执行完成\n&quot;</span> + <span class="hljs-string">&quot;t=&quot;</span> + t +<span class="hljs-string">&quot;\n&quot;</span>+ <span class="hljs-string">&quot;action=&quot;</span> + action));
+<span class="hljs-keyword">long</span> time = future1.join();
+System.out.println(<span class="hljs-string">&quot;time = &quot;</span> + time);
+CompletableFuture&lt;Long&gt; future2 = CompletableFuture.supplyAsync(() -&gt; &#123;
+      <span class="hljs-keyword">try</span> &#123;
+          TimeUnit.SECONDS.sleep(<span class="hljs-number">1</span>);
+      &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+          System.err.println(e.getMessage());
+      &#125;
+      <span class="hljs-keyword">int</span> i=<span class="hljs-number">10</span>/<span class="hljs-number">0</span>;
+      System.out.println(<span class="hljs-string">&quot;run end ...&quot;</span>);
+      <span class="hljs-keyword">return</span> System.currentTimeMillis();
+  &#125;).exceptionally(t -&gt; <span class="hljs-number">1L</span>);
+  <span class="hljs-keyword">long</span> time = future2.join();
+  System.out.println(<span class="hljs-string">&quot;time = &quot;</span> + time);</code></pre></div>
+<h3 id="3-thenApply-方法"><a href="#3-thenApply-方法" class="headerlink" title="3. thenApply 方法"></a>3. thenApply 方法</h3><p>当一个线程依赖另一个线程时，可以使用 thenApply 方法来把这两个线程串行化。</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletableFuture&lt;U&gt; <span class="hljs-title">thenApply</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> T,? extends U&gt; fn)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> &lt;U&gt; CompletableFuture&lt;U&gt; <span class="hljs-title">thenApplyAsync</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> T,? extends U&gt; fn)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> &lt;U&gt; CompletableFuture&lt;U&gt; <span class="hljs-title">thenApplyAsync</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> T,? extends U&gt; fn, Executor executor)</span></span></code></pre></div>
+<ul>
+<li>Function&lt;? super T,? extends U&gt;</li>
+<li>T：上一个任务返回结果的类型</li>
+<li>U：当前任务的返回值类型</li>
+</ul>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Long&gt; future = CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">long</span> result = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">10</span>);
+    System.out.println(<span class="hljs-string">&quot;result1=&quot;</span> + result);
+    <span class="hljs-keyword">return</span> result;
+&#125;).thenApply(t -&gt; &#123;
+    <span class="hljs-keyword">long</span> result = t * <span class="hljs-number">10</span>;
+    System.out.println(<span class="hljs-string">&quot;result2=&quot;</span> + result);
+    <span class="hljs-keyword">return</span> result;
+&#125;);
+<span class="hljs-keyword">long</span> result = future.join();
+System.out.println(result);</code></pre></div>
+<p>第二个任务依赖第一个任务的结果。</p>
+<h3 id="4-handle-方法"><a href="#4-handle-方法" class="headerlink" title="4. handle 方法"></a>4. handle 方法</h3><p>handle 是执行任务完成时对结果的处理。<br>handle 方法和 thenApply 方法处理方式基本一样。不同的是 handle 是在任务完成后再执行，还可以处理异常的任务。<br>thenApply 只可以执行正常的任务，任务出现异常则不执行 thenApply 方法。   </p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;U&gt; <span class="hljs-title">handle</span><span class="hljs-params">(BiFunction&lt;? <span class="hljs-keyword">super</span> T, Throwable, ? extends U&gt; fn)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;U&gt; <span class="hljs-title">handleAsync</span><span class="hljs-params">(BiFunction&lt;? <span class="hljs-keyword">super</span> T, Throwable, ? extends U&gt; fn)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;U&gt; <span class="hljs-title">handleAsync</span><span class="hljs-params">(BiFunction&lt;? <span class="hljs-keyword">super</span> T, Throwable, ? extends U&gt; fn,Executor executor)</span></span>;</code></pre></div>
+
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Integer&gt; future = CompletableFuture.supplyAsync(() -&gt; &#123;
+              <span class="hljs-keyword">int</span> i= <span class="hljs-number">10</span>/<span class="hljs-number">0</span>;
+              <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">10</span>);
+          &#125;).handle((param, throwable) -&gt; &#123;
+              <span class="hljs-keyword">int</span> result = -<span class="hljs-number">1</span>;
+              <span class="hljs-keyword">if</span>(throwable==<span class="hljs-keyword">null</span>)&#123;
+                  result = param * <span class="hljs-number">2</span>;
+              &#125;<span class="hljs-keyword">else</span>&#123;
+                  System.out.println(throwable.getMessage());
+              &#125;
+              <span class="hljs-keyword">return</span> result;
+          &#125;);
+          System.out.println(future.join());</code></pre></div>
+<p>从示例中可以看出，在 handle 中可以根据任务是否有异常来进行做相应的后续处理操作。<br>而 thenApply 方法，如果上个任务出现错误，则不会执行 thenApply 方法。</p>
+<h3 id="5-thenAccept-消费处理结果"><a href="#5-thenAccept-消费处理结果" class="headerlink" title="5. thenAccept 消费处理结果"></a>5. thenAccept 消费处理结果</h3><p>接收任务的处理结果，并消费处理，无返回结果。</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">thenAccept</span><span class="hljs-params">(Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">thenAcceptAsync</span><span class="hljs-params">(Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">thenAcceptAsync</span><span class="hljs-params">(Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action,Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Void&gt; future = CompletableFuture.supplyAsync(() -&gt; &#123;
+   <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">10</span>);
+&#125;).thenAccept(integer -&gt; &#123;
+    System.out.println(integer);
+&#125;);
+future.join();</code></pre></div>
+<p>从示例代码中可以看出，该方法只是消费执行完成的任务，并可以根据上面的任务返回的结果进行处理。并没有后续的输错操作。</p>
+<h3 id="6-thenRun-方法"><a href="#6-thenRun-方法" class="headerlink" title="6. thenRun 方法"></a>6. thenRun 方法</h3><p>跟 thenAccept 方法不一样的是，不关心任务的处理结果。<br>只要上面的任务执行完成，就开始执行 thenAccept 。   </p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">thenRun</span><span class="hljs-params">(Runnable action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">thenRunAsync</span><span class="hljs-params">(Runnable action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">thenRunAsync</span><span class="hljs-params">(Runnable action,Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Void&gt; future = CompletableFuture.supplyAsync(() -&gt;&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">10</span>);
+&#125;).thenRun(() -&gt; &#123;
+    System.out.println(<span class="hljs-string">&quot;thenRun ...&quot;</span>);
+&#125;);
+future.join();</code></pre></div>
+<p>该方法同 thenAccept 方法类似。不同的是上个任务处理完成后，并不会把计算的结果传给 thenRun 方法。<br>只是处理玩任务后，执行 thenAccept 的后续操作。  </p>
+<h3 id="7-thenCombine-合并任务"><a href="#7-thenCombine-合并任务" class="headerlink" title="7. thenCombine 合并任务"></a>7. thenCombine 合并任务</h3><p>thenCombine 会把 两个 CompletionStage 的任务都执行完成后，把两个任务的结果一块交给 thenCombine 来处理。</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;U,V&gt; <span class="hljs-function">CompletionStage&lt;V&gt; <span class="hljs-title">thenCombine</span><span class="hljs-params">(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? <span class="hljs-keyword">super</span> T,? <span class="hljs-keyword">super</span> U,? extends V&gt; fn)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U,V&gt; <span class="hljs-function">CompletionStage&lt;V&gt; <span class="hljs-title">thenCombineAsync</span><span class="hljs-params">(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? <span class="hljs-keyword">super</span> T,? <span class="hljs-keyword">super</span> U,? extends V&gt; fn)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U,V&gt; <span class="hljs-function">CompletionStage&lt;V&gt; <span class="hljs-title">thenCombineAsync</span><span class="hljs-params">(CompletionStage&lt;? extends U&gt; other,BiFunction&lt;? <span class="hljs-keyword">super</span> T,? <span class="hljs-keyword">super</span> U,? extends V&gt; fn,Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;String&gt; future1 = CompletableFuture.supplyAsync(() -&gt; <span class="hljs-string">&quot;hello&quot;</span>);
+     CompletableFuture&lt;String&gt; future2 = CompletableFuture.supplyAsync(() -&gt; <span class="hljs-string">&quot;world&quot;</span>);
+     CompletableFuture&lt;String&gt; result = future1.thenCombine(future2, (t, u) -&gt; &#123;
+         System.err.println(<span class="hljs-string">&quot;t=&quot;</span> + t + <span class="hljs-string">&quot;\n&quot;</span> + <span class="hljs-string">&quot;u=&quot;</span> + u);
+         <span class="hljs-keyword">return</span> t + u;
+     &#125;);
+     System.out.println(result.join());</code></pre></div>
+<h3 id="8-thenAcceptBoth"><a href="#8-thenAcceptBoth" class="headerlink" title="8. thenAcceptBoth"></a>8. thenAcceptBoth</h3><p>当两个CompletionStage都执行完成后，把结果一块交给thenAcceptBoth来进行消耗</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;Void&gt; <span class="hljs-title">thenAcceptBoth</span><span class="hljs-params">(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? <span class="hljs-keyword">super</span> T, ? <span class="hljs-keyword">super</span> U&gt; action)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;Void&gt; <span class="hljs-title">thenAcceptBothAsync</span><span class="hljs-params">(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? <span class="hljs-keyword">super</span> T, ? <span class="hljs-keyword">super</span> U&gt; action)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;Void&gt; <span class="hljs-title">thenAcceptBothAsync</span><span class="hljs-params">(CompletionStage&lt;? extends U&gt; other,BiConsumer&lt;? <span class="hljs-keyword">super</span> T, ? <span class="hljs-keyword">super</span> U&gt; action,     Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Integer&gt; f1 = CompletableFuture.supplyAsync(() -&gt; &#123;
+           <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+           <span class="hljs-keyword">try</span> &#123;
+               TimeUnit.SECONDS.sleep(t);
+           &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+               e.printStackTrace();
+           &#125;
+           System.out.println(<span class="hljs-string">&quot;f1=&quot;</span> + t);
+           <span class="hljs-keyword">return</span> t;
+       &#125;);
+       CompletableFuture&lt;Integer&gt; f2 = CompletableFuture.supplyAsync(() -&gt; &#123;
+           <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+           <span class="hljs-keyword">try</span> &#123;
+               TimeUnit.SECONDS.sleep(t);
+           &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+               e.printStackTrace();
+           &#125;
+           System.out.println(<span class="hljs-string">&quot;f2=&quot;</span> + t);
+           <span class="hljs-keyword">return</span> t;
+       &#125;);
+       <span class="hljs-keyword">final</span> CompletableFuture&lt;Void&gt; acceptBoth = f1.thenAcceptBoth(f2, (t, u) -&gt; &#123;
+           System.out.println(<span class="hljs-string">&quot;f1=&quot;</span> + t + <span class="hljs-string">&quot;;f2=&quot;</span> + u + <span class="hljs-string">&quot;;&quot;</span>);
+       &#125;);</code></pre></div>
+<h3 id="9-applyToEither-方法"><a href="#9-applyToEither-方法" class="headerlink" title="9. applyToEither 方法"></a>9. applyToEither 方法</h3><p>两个CompletionStage，谁执行返回的结果快，我就用那个CompletionStage的结果进行下一步的转化操作。</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;U&gt; <span class="hljs-title">applyToEither</span><span class="hljs-params">(CompletionStage&lt;? extends T&gt; other,Function&lt;? <span class="hljs-keyword">super</span> T, U&gt; fn)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;U&gt; <span class="hljs-title">applyToEitherAsync</span><span class="hljs-params">(CompletionStage&lt;? extends T&gt; other,Function&lt;? <span class="hljs-keyword">super</span> T, U&gt; fn)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletionStage&lt;U&gt; <span class="hljs-title">applyToEitherAsync</span><span class="hljs-params">(CompletionStage&lt;? extends T&gt; other,Function&lt;? <span class="hljs-keyword">super</span> T, U&gt; fn,Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Integer&gt; f1 = CompletableFuture.supplyAsync(() -&gt; &#123;
+             <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+             <span class="hljs-keyword">try</span> &#123;
+                 TimeUnit.SECONDS.sleep(t);
+             &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                 e.printStackTrace();
+             &#125;
+             System.err.println(<span class="hljs-string">&quot;f1=&quot;</span>+t);
+             <span class="hljs-keyword">return</span> t;
+         &#125;);
+         CompletableFuture&lt;Integer&gt; f2 = CompletableFuture.supplyAsync(() -&gt; &#123;
+             <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+             <span class="hljs-keyword">try</span> &#123;
+                 TimeUnit.SECONDS.sleep(t);
+             &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                 e.printStackTrace();
+             &#125;
+             System.err.println(<span class="hljs-string">&quot;f2=&quot;</span>+t);
+             <span class="hljs-keyword">return</span> t;
+         &#125;);
+         CompletableFuture&lt;Integer&gt; result = f1.applyToEither(f2, t -&gt; &#123;
+             System.err.println(t);
+             <span class="hljs-keyword">return</span> t * <span class="hljs-number">2</span>;
+         &#125;);
+         System.err.println(result.join());</code></pre></div>
+<h3 id="10-acceptEither-方法"><a href="#10-acceptEither-方法" class="headerlink" title="10. acceptEither 方法"></a>10. acceptEither 方法</h3><p>两个CompletionStage，谁执行返回的结果快，我就用那个CompletionStage的结果进行下一步的消耗操作。</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">acceptEither</span><span class="hljs-params">(CompletionStage&lt;? extends T&gt; other,Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">acceptEitherAsync</span><span class="hljs-params">(CompletionStage&lt;? extends T&gt; other,Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">acceptEitherAsync</span><span class="hljs-params">(CompletionStage&lt;? extends T&gt; other,Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action,Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java"> CompletableFuture&lt;Integer&gt; f1 = CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">try</span> &#123;
+        TimeUnit.SECONDS.sleep(t);
+    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+        e.printStackTrace();
+    &#125;
+    System.out.println(<span class="hljs-string">&quot;f1=&quot;</span>+t);
+    <span class="hljs-keyword">return</span> t;
+&#125;);
+CompletableFuture&lt;Integer&gt; f2 = CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">try</span> &#123;
+        TimeUnit.SECONDS.sleep(t);
+    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+        e.printStackTrace();
+    &#125;
+    System.out.println(<span class="hljs-string">&quot;f2=&quot;</span>+t);
+    <span class="hljs-keyword">return</span> t;
+&#125;);
+f1.acceptEither(f2, t -&gt; &#123;
+    System.out.println(t);
+&#125;);</code></pre></div>
+<h3 id="11-runAfterEither-方法"><a href="#11-runAfterEither-方法" class="headerlink" title="11. runAfterEither 方法"></a>11. runAfterEither 方法</h3><p>两个CompletionStage，任何一个完成了都会执行下一步的操作（Runnable）</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">runAfterEither</span><span class="hljs-params">(CompletionStage&lt;?&gt; other,Runnable action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">runAfterEitherAsync</span><span class="hljs-params">(CompletionStage&lt;?&gt; other,Runnable action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">runAfterEitherAsync</span><span class="hljs-params">(CompletionStage&lt;?&gt; other,Runnable action,Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Integer&gt; f1 = CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">try</span> &#123;
+        TimeUnit.SECONDS.sleep(t);
+    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+        e.printStackTrace();
+    &#125;
+    System.out.println(<span class="hljs-string">&quot;f1=&quot;</span>+t);
+    <span class="hljs-keyword">return</span> t;
+&#125;);
+CompletableFuture&lt;Integer&gt; f2 = CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">try</span> &#123;
+        TimeUnit.SECONDS.sleep(t);
+    &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+        e.printStackTrace();
+    &#125;
+    System.out.println(<span class="hljs-string">&quot;f2=&quot;</span>+t);
+    <span class="hljs-keyword">return</span> t;
+&#125;);
+f1.runAfterBoth(f2, () -&gt;&#123;
+    System.out.println(<span class="hljs-string">&quot;上面两个任务任意一个执行完成了。&quot;</span>);
+&#125;);</code></pre></div>
+<h3 id="12-runAfterBoth-方法"><a href="#12-runAfterBoth-方法" class="headerlink" title="12. runAfterBoth 方法"></a>12. runAfterBoth 方法</h3><p>两个CompletionStage，都完成了计算才会执行下一步的操作（Runnable）</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">runAfterBoth</span><span class="hljs-params">(CompletionStage&lt;?&gt; other,Runnable action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">runAfterBothAsync</span><span class="hljs-params">(CompletionStage&lt;?&gt; other,Runnable action)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">public</span> CompletionStage&lt;Void&gt; <span class="hljs-title">runAfterBothAsync</span><span class="hljs-params">(CompletionStage&lt;?&gt; other,Runnable action,Executor executor)</span></span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Integer&gt; f1 = CompletableFuture.supplyAsync(() -&gt; &#123;
+                <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+                <span class="hljs-keyword">try</span> &#123;
+                    TimeUnit.SECONDS.sleep(t);
+                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                    e.printStackTrace();
+                &#125;
+                System.out.println(<span class="hljs-string">&quot;f1=&quot;</span>+t);
+                <span class="hljs-keyword">return</span> t;
+            &#125;);
+            CompletableFuture&lt;Integer&gt; f2 = CompletableFuture.supplyAsync(() -&gt; &#123;
+                <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+                <span class="hljs-keyword">try</span> &#123;
+                    TimeUnit.SECONDS.sleep(t);
+                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                    e.printStackTrace();
+                &#125;
+                System.out.println(<span class="hljs-string">&quot;f2=&quot;</span>+t);
+                <span class="hljs-keyword">return</span> t;
+            &#125;);
+            f1.runAfterBoth(f2, () -&gt;&#123;
+                System.out.println(<span class="hljs-string">&quot;上面两个任务都执行完成了。&quot;</span>);
+            &#125;);</code></pre></div>
+<h3 id="13-thenCompose-方法"><a href="#13-thenCompose-方法" class="headerlink" title="13. thenCompose 方法"></a>13. thenCompose 方法</h3><p>thenCompose 方法允许你对两个 CompletionStage 进行流水线操作，第一个操作完成时，将其结果作为参数传递给第二个操作。</p>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletableFuture&lt;U&gt; <span class="hljs-title">thenCompose</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> T, ? extends CompletionStage&lt;U&gt;&gt; fn)</span></span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletableFuture&lt;U&gt; <span class="hljs-title">thenComposeAsync</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> T, ? extends CompletionStage&lt;U&gt;&gt; fn)</span> </span>;
+<span class="hljs-keyword">public</span> &lt;U&gt; <span class="hljs-function">CompletableFuture&lt;U&gt; <span class="hljs-title">thenComposeAsync</span><span class="hljs-params">(Function&lt;? <span class="hljs-keyword">super</span> T, ? extends CompletionStage&lt;U&gt;&gt; fn, Executor executor)</span> </span>;</code></pre></div>
+<p><Strong>示例</Strong></p>
+<div class="hljs"><pre><code class="hljs java">CompletableFuture&lt;Integer&gt; f = CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">int</span> t = <span class="hljs-keyword">new</span> Random().nextInt(<span class="hljs-number">3</span>);
+    System.out.println(<span class="hljs-string">&quot;t1=&quot;</span>+t);
+    <span class="hljs-keyword">return</span> t;
+&#125;).thenCompose(param -&gt; CompletableFuture.supplyAsync(() -&gt; &#123;
+    <span class="hljs-keyword">int</span> t = param * <span class="hljs-number">10</span>;
+    System.out.println(<span class="hljs-string">&quot;t2=&quot;</span>+ t);
+    <span class="hljs-keyword">return</span> t;
+&#125;));
+System.out.println(<span class="hljs-string">&quot;thenCompose result : &quot;</span>+f.join());</code></pre></div>
+<h3 id="14-CompletableFutureUtil"><a href="#14-CompletableFutureUtil" class="headerlink" title="14. CompletableFutureUtil"></a>14. CompletableFutureUtil</h3><div class="hljs"><pre><code class="hljs java"><span class="hljs-comment">//任务1：洗水壶-&gt;烧开水</span>
+CompletableFuture&lt;String&gt; f1 =
+        CompletableFuture.supplyAsync(()-&gt;&#123;
+            System.out.println(<span class="hljs-string">&quot;T1:洗水壶...&quot;</span>);
+            sleep(<span class="hljs-number">1</span>, TimeUnit.SECONDS);
+
+            System.out.println(<span class="hljs-string">&quot;T1:烧开水...&quot;</span>);
+            sleep(<span class="hljs-number">15</span>, TimeUnit.SECONDS);
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;白开水&quot;</span>;
+        &#125;);
+<span class="hljs-comment">//任务2：洗茶壶-&gt;洗茶杯-&gt;拿茶叶</span>
+CompletableFuture&lt;String&gt; f2 =
+        CompletableFuture.supplyAsync(()-&gt;&#123;
+            System.out.println(<span class="hljs-string">&quot;T2:洗茶壶...&quot;</span>);
+            sleep(<span class="hljs-number">1</span>, TimeUnit.SECONDS);
+
+            System.out.println(<span class="hljs-string">&quot;T2:洗茶杯...&quot;</span>);
+            sleep(<span class="hljs-number">2</span>, TimeUnit.SECONDS);
+
+            System.out.println(<span class="hljs-string">&quot;T2:拿茶叶...&quot;</span>);
+            sleep(<span class="hljs-number">1</span>, TimeUnit.SECONDS);
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;龙井&quot;</span>;
+        &#125;);
+<span class="hljs-comment">//任务3：任务1和任务2完成后执行：泡茶</span>
+CompletableFuture&lt;String&gt; f3 =
+        f1.thenCombine(f2,(f11, f22)-&gt;&#123;
+            System.out.println(<span class="hljs-string">&quot;T1:拿到水:&quot;</span> + f11);
+            System.out.println(<span class="hljs-string">&quot;T1:泡茶...&quot;</span>+f22);
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;上茶:&quot;</span> + f11;
+        &#125;);
+<span class="hljs-comment">//等待任务3执行结果</span>
+System.out.println(f3.join());</code></pre></div>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">final</span> ForkJoinPool forkJoinPool = <span class="hljs-keyword">new</span> ForkJoinPool(<span class="hljs-number">2</span> * (Runtime.getRuntime().availableProcessors()) + <span class="hljs-number">1</span>);
+CompletableFuture&lt;DeliverTmGisDTO&gt; future1 = CompletableFuture.supplyAsync(() -&gt; <span class="hljs-keyword">new</span> DeliverTmGisDTO(<span class="hljs-keyword">null</span>, commonGisService.gisAddrSlip(request.getSrcAddress()), <span class="hljs-keyword">null</span>))
+        .exceptionally(x -&gt; <span class="hljs-keyword">null</span>);
+CompletableFuture&lt;DeliverTmGisDTO&gt; future2 = CompletableFuture.supplyAsync(() -&gt; <span class="hljs-keyword">new</span> DeliverTmGisDTO(<span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, commonGisService.gisAddrSlip(request.getDestAddress())))
+        .exceptionally(y -&gt; <span class="hljs-keyword">null</span>);
+CompletableFuture&lt;DeliverTmGisDTO&gt; future3 = CompletableFuture.supplyAsync(() -&gt; <span class="hljs-keyword">new</span> DeliverTmGisDTO(commonOrgService.depthGetClientCodeAndCheckCode(orgId, <span class="hljs-number">0</span>), <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>), forkJoinPool)
+        .exceptionally(z -&gt; <span class="hljs-keyword">null</span>);
+<span class="hljs-keyword">final</span> List&lt;CompletableFuture&lt;DeliverTmGisDTO&gt;&gt; futures = Arrays.asList(future1, future2, future3);
+List&lt;DeliverTmGisDTO&gt; deliverTmGis;
+<span class="hljs-keyword">try</span> &#123;
+    deliverTmGis = CommonCompletableFutureUtil.sequenceExceptionallyCompleteMeetFirstfFailure(futures).join();
+&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+    log.error(<span class="hljs-string">&quot;BspOrderController.deliverTmV3 error:&#123;&#125;&quot;</span>, e.getMessage());
+    <span class="hljs-keyword">throw</span> e;
+&#125; <span class="hljs-keyword">finally</span> &#123;
+    log.info(<span class="hljs-string">&quot;forkJoinPool.shutdownNow success&quot;</span>);
+    forkJoinPool.shutdownNow();
+&#125;</code></pre></div>
+<div class="hljs"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.sf.united.store.common.utils;
+<span class="hljs-keyword">import</span> org.slf4j.Logger;
+<span class="hljs-keyword">import</span> org.slf4j.LoggerFactory;
+<span class="hljs-keyword">import</span> java.util.List;
+<span class="hljs-keyword">import</span> java.util.concurrent.CompletableFuture;
+<span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> java.util.stream.Collectors.toList;
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * created by liurenjin on 2019/2/21</span>
+<span class="hljs-comment"> * 参考</span>
+<span class="hljs-comment"> * https://www.cnblogs.com/dennyzhangdd/p/7010972.html</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommonCompletableFutureUtil</span> </span>&#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Logger log = LoggerFactory.getLogger(CommonCompletableFutureUtil.class);
+    <span class="hljs-comment">/*组合多个CompletableFuture为一个CompletableFuture,所有子任务全部完成，组合后的任务才会完成。带返回值，可直接get.</span>
+<span class="hljs-comment">     *</span>
+<span class="hljs-comment">     * */</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; CompletableFuture&lt;List&lt;T&gt;&gt; sequence(List&lt;CompletableFuture&lt;T&gt;&gt; futuresList) &#123;
+        log.info(<span class="hljs-string">&quot;CompletableFuture sequence start &quot;</span>);
+        <span class="hljs-comment">//1.构造一个空CompletableFuture，子任务数为入参任务list size</span>
+        <span class="hljs-comment">//2.流式（总任务完成后，每个子任务join取结果，后转换为list）</span>
+        <span class="hljs-keyword">return</span> CompletableFuture.allOf(futuresList.toArray(<span class="hljs-keyword">new</span> CompletableFuture&lt;?&gt;[<span class="hljs-number">0</span>]))
+                .thenApply(v -&gt; futuresList.stream()
+                        .map(CompletableFuture::join)
+                        .collect(toList())
+                );
+    &#125;
+    <span class="hljs-comment">//任何一个任务 异常</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; CompletableFuture&lt;List&lt;T&gt;&gt; sequenceExceptionallyCompleteMeetFirstfFailure(List&lt;CompletableFuture&lt;T&gt;&gt; futuresList) &#123;
+        log.info(<span class="hljs-string">&quot;CompletableFuture sequenceExceptionallyCompleteMeetFirstfFailure start &quot;</span>);
+        CompletableFuture&lt;List&lt;T&gt;&gt; result = CompletableFuture.allOf(futuresList.toArray(<span class="hljs-keyword">new</span> CompletableFuture&lt;?&gt;[<span class="hljs-number">0</span>]))
+                .thenApply(v -&gt; futuresList.stream()
+                        .map(CompletableFuture::join)
+                        .collect(toList())
+                );
+        futuresList.forEach(f -&gt; f.whenComplete((t, ex) -&gt; &#123;
+            <span class="hljs-keyword">if</span> (ex != <span class="hljs-keyword">null</span>) &#123;
+                log.error(<span class="hljs-string">&quot;CompletableFuture  exception &quot;</span> + ex.getMessage(), ex);
+                result.completeExceptionally(ex);
+            &#125;
+        &#125;));
+        log.info(<span class="hljs-string">&quot;CompletableFuture sequenceExceptionallyCompleteMeetFirstfFailure end &quot;</span>);
+        <span class="hljs-keyword">return</span> result;
+    &#125;
+&#125;</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java8/">Java8</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/21/2020-05-21-CentOS7%E5%AE%89%E8%A3%85Docker/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">CentOS7安装Docker</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/10/2020-04-10-RocketMq/">
+                        <span class="hidden-mobile">RocketMq</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Square</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证336300号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=336300"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备336300号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "CompletableFuture&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

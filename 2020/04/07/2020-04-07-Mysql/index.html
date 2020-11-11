@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon_1.png">
+  <link rel="icon" type="image/png" href="/img/favicon_1.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Square">
+  <meta name="keywords" content="">
+  <title>Mysql - 108 Keywords</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/darcula.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-07 00:00" pubdate>
+        2020年4月7日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      31
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Mysql</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><h5 id="1、MyISAM和InnoDB区别"><a href="#1、MyISAM和InnoDB区别" class="headerlink" title="1、MyISAM和InnoDB区别"></a>1、MyISAM和InnoDB区别</h5><ul>
+<li>是否支持行级锁:MyISAM只有表级锁，InnoDB 支持行级锁和表级锁,默认为行级锁。  </li>
+<li>是否支持事务和崩溃后的安全恢复:MyISAM强调的是性能，不提供事务支持。InnoDB提供事务支持事务，外部键等高级数据库功能。   </li>
+</ul>
+<p>具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。  </p>
+<ul>
+<li>是否支持外键： MyISAM不支持，而InnoDB支持。  </li>
+<li>是否支持MVCC ：仅 InnoDB 支持。应对高并发事务, MVCC比单纯的加锁更高效;MVCC只在 READ COMMITTED 和 REPEATABLE READ 两个隔离级别下工作;</li>
+</ul>
+<p>MVCC可以使用 乐观(optimistic)锁 和 悲观(pessimistic)锁来实现;</p>
+<h5 id="2、索引的数据结构"><a href="#2、索引的数据结构" class="headerlink" title="2、索引的数据结构"></a>2、索引的数据结构</h5><p>主流B+Tree、Hash结构以及BitMap等，其中mysql数据库不支持BitMap索引,<br>同时基于InnoDB以及MyISAM引擎的mysql不显示支持Hash<br>Hash索引的缺点:仅仅能满足”=”和”in”,不能使用范围查询<br>无法用来数据的排序操作<br>遇到Hash冲突的时候效率不高   </p>
+<h5 id="3、什么是事务"><a href="#3、什么是事务" class="headerlink" title="3、什么是事务?"></a>3、什么是事务?</h5><ol>
+<li>原子性（Atomicity）： 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；</li>
+<li>一致性（Consistency）： 执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；</li>
+<li>隔离性（Isolation）： 并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的；</li>
+<li>持久性（Durability）： 一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响</li>
+</ol>
+<h5 id="4、事务隔离级别有哪些-MySQL的默认隔离级别是"><a href="#4、事务隔离级别有哪些-MySQL的默认隔离级别是" class="headerlink" title="4、事务隔离级别有哪些?MySQL的默认隔离级别是?"></a>4、事务隔离级别有哪些?MySQL的默认隔离级别是?</h5><ul>
+<li>READ-UNCOMMITTED(读未提交)： 最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。  </li>
+<li>READ-COMMITTED(读已提交)： 允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生   。</li>
+<li>REPEATABLE-READ(可重复读)： 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。   </li>
+<li>SERIALIZABLE(串行化)： 最高的隔离级别，完全服从ACID的隔离级别。</li>
+</ul>
+<p>MySQL InnoDB 存储引擎的默认支持的隔离级别是 REPEATABLE-READ（可重读）  </p>
+<h5 id="5、-为什么要使用索引？"><a href="#5、-为什么要使用索引？" class="headerlink" title="5、 为什么要使用索引？"></a>5、 为什么要使用索引？</h5><ol>
+<li>创建唯一性索引，可以保证数据库表中每一行数据的唯一性。   </li>
+<li>加快数据的检索速度（大大减少的检索的数据量）, 这也是创建索引的最主要的原因。    </li>
+<li>帮助服务器避免排序和临时表。   </li>
+<li>将随机IO变为顺序IO   </li>
+<li>可以加速表和表之间的连接。     </li>
+</ol>
+<h5 id="6、索引这么多优点，为什么不对表中的每一个列创建一个索引呢？"><a href="#6、索引这么多优点，为什么不对表中的每一个列创建一个索引呢？" class="headerlink" title="6、索引这么多优点，为什么不对表中的每一个列创建一个索引呢？"></a>6、索引这么多优点，为什么不对表中的每一个列创建一个索引呢？</h5><ol>
+<li>当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护。  </li>
+<li>索引需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大。   </li>
+<li>创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加。    </li>
+</ol>
+<h5 id="7、-transactional注解在什么情况下会失效，为什么？"><a href="#7、-transactional注解在什么情况下会失效，为什么？" class="headerlink" title="7、@transactional注解在什么情况下会失效，为什么？"></a>7、@transactional注解在什么情况下会失效，为什么？</h5><p>检查方法是不是public<br>异常类型是不是unchecked异常<br>数据库引擎是否支持事务<br>Spring是否扫描到你事务的这个包的注解了<br>是不是同一个类中调用的方法<br>异常是不是被catch住了      </p>
+<h5 id="8、简单说一说drop、delete与truncate的区别"><a href="#8、简单说一说drop、delete与truncate的区别" class="headerlink" title="8、简单说一说drop、delete与truncate的区别"></a>8、简单说一说drop、delete与truncate的区别</h5><p>SQL中的drop、delete、truncate都表示删除，但是三者有一些差别<br>1、delete和truncate只删除表的数据不删除表的结构<br>2、速度,一般来说: drop&gt; truncate &gt;delete<br>3、delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效;<br>4、如果有相应的trigger,执行的时候将被触发. truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.</p>
+<h5 id="9、你所用过的DDL语句"><a href="#9、你所用过的DDL语句" class="headerlink" title="9、你所用过的DDL语句"></a>9、你所用过的DDL语句</h5><p>alter table <code>us_zara_origin_detail</code> add index index_order_id ( <code>order_id</code> );<br>alter table <code>us_receive_address</code> add column org_number_path varchar(512) null comment ‘组织路径编号’;<br>alter table <code>us_zara_origin_detail</code> drop index index_order_id;</p>
+<h5 id="10-什么情况下索引失效"><a href="#10-什么情况下索引失效" class="headerlink" title="10. 什么情况下索引失效"></a>10. 什么情况下索引失效</h5><p>1.查询条件包含or（当or左右查询字段只有一个是索引，该索引失效。只有当or左右查询字段均为索引时，才会生效；）<br>2.组合索引，不是使用第一列索引，索引失效。最佳左前缀法则（带头索引不能死，中间索引不能断）<br>如果select * from key1=1 and key2= 2;建立组合索引（key1，key2）;<br>select * from key1 = 1;组合索引有效；<br>select * from key1 = 1 and key2= 2;组合索引有效；<br>select * from key2 = 2;组合索引失效；不符合最左前缀原则<br>3.索引字段使用like以通配符开头（‘%字符串’）时，会导致索引失效而转向全表扫描<br>4.索引字段是字符串，但查询时不加单引号，会导致索引失效而转向全表扫描<br>5.当全表扫描速度比索引速度快时，mysql会使用全表扫描，此时索引失效<br>6、索引字段上使用（！= 或者 &lt; &gt;）判断时，会导致索引失效而转向全表扫描<br>7、不要在索引上做任何操作（计算、函数、自动/手动类型转换），不然会导致索引失效而转向全表扫描<br>8、mysql存储引擎不能继续使用索引中范围条件（between、&lt;、&gt;、in等）右边的列<br>9、索引字段上使用（！= 或者 &lt; &gt;）判断时，会导致索引失效而转向全表扫描<br>10、索引字段上使用 is null / is not null 判断时，会导致索引失效而转向全表扫描<br>11、查询的数量是大表的大部分，应该是30％以上<br>12、between and 时间查询跨度大导致索引失效</p>
+<h5 id="11-mysql的union和unionall区别"><a href="#11-mysql的union和unionall区别" class="headerlink" title="11. mysql的union和unionall区别"></a>11. mysql的union和unionall区别</h5><p>Union：对两个结果集进行并集操作，不包括重复行，同时进行默认规则的排序；<br>Union All：对两个结果集进行并集操作，包括重复行，不进行排序</p>
+<h4 id="原子性是基于日志的Redo-Undo机制，你能说一说Redo-Undo机制吗？"><a href="#原子性是基于日志的Redo-Undo机制，你能说一说Redo-Undo机制吗？" class="headerlink" title="原子性是基于日志的Redo/Undo机制，你能说一说Redo/Undo机制吗？"></a>原子性是基于日志的Redo/Undo机制，你能说一说Redo/Undo机制吗？</h4><p>Redo/Undo机制比较简单，它们将所有对数据的更新操作都写到日志中<br>Redo log用来记录某数据块被修改后的值，可以用来恢复未写入 data file 的已成功事务更新的数据；Undo log是用来记录数据更新前的值，保证数据更新失败能够回滚。<br>假如某个时刻数据库崩溃，在崩溃之前有事务A和事务B在执行，事务A已经提交，而事务B还未提交。<br>当数据库重启进行crash-recovery时，就会通过Redo log将已经提交事务的更改写到数据文件，而还没有提交的就通过Undo log进行roll back</p>
+<p>设置隔离级别的语句中set global transaction isolation level read uncommitted，<br>这里的global也可以换成session，global表示全局的，而session表示当前会话，也就是当前窗口有效。</p>
+<p>Mysq的锁说起，在Mysql中的锁可以分为分享锁/读锁（Shared Locks）、排他锁/写锁（Exclusive Locks） 、间隙锁、行锁（Record Locks）、表锁<br>在四个隔离级别中加锁肯定是要消耗性能的，而读未提交是没有加任何锁的，所以对于它来说也就是没有隔离的效果，所以它的性能也是最好的<br>对于串行化加的是一把大锁，读的时候加共享锁，不能写，写的时候，加的是排它锁，阻塞其它事务的写入和读取，<br>若是其它的事务长时间不能写入就会直接报超时，所以它的性能也是最差的，对于它来就没有什么并发性可言<br> 对于读提交和可重复读，他们俩的实现是兼顾解决数据问题，然后又要有一定的并发行，所以在实现上锁机制会比串行化优化很多，提高并发性，所以性能也会比较好</p>
+<p>数据库的增删改操作默认都会加排他锁，而查询不会加任何锁。</p>
+<p>共享锁：对某一资源加共享锁，自身可以读该资源，其他人也可以读该资源（也可以再继续加共享锁，即 共享锁可多个共存），但无法修改。要想修改就必须等所有共享锁都释放完之后。语法为：<br>select * from table lock in share mode</p>
+<p>排他锁：对某一资源加排他锁，自身可以进行增删改查，其他人无法进行任何操作。语法为：<br>select * from table for update</p>
+<p>行锁和表锁，是从锁的粒度上进行划分的，行锁锁定当前数据行，锁的粒度小，加锁慢，发生锁冲突的概率小，并发度高，<br>行锁也是MyISAM和InnoDB的区别之一，InnoDB支持行锁并且支持事务<br>表锁则锁的粒度大，加锁快，开销小，但是锁冲突的概率大，并发度低</p>
+<p>间隙锁则分为两种：Gap Locks和Next-Key Locks。Gap Locks会锁住两个索引之间的区间，<br>比如select * from User where id&gt;3 and id&lt;5 for update，就会在区间（3，5）之间加上Gap Locks<br>Next-Key Locks是Gap Locks+Record Locks形成闭区间锁select * from User where id&gt;=3 and id=&lt;5 for update，就会在区间[3,5]之间加上Next-Key Locks。</p>
+<p>假如事务1和事务2都要执行update操作，<br>事务1先update数据行的时候，先回获取行锁，锁定数据，<br>当事务2要进行update操作的时候，也会取获取该数据行的行锁，<br>但是已经被事务1占有，事务2只能wait<br>若是事务1长时间没有释放锁，事务2就会出现超时异常<br>这个是在update的where后的条件是在有索引的情况下</p>
+<h4 id="Mysql中什么时候会加锁呢"><a href="#Mysql中什么时候会加锁呢" class="headerlink" title="Mysql中什么时候会加锁呢"></a>Mysql中什么时候会加锁呢</h4><p>在数据库的增、删、改、查中，只有增、删、改才会加上排它锁，而只是查询并不会加锁，<br>只能通过在select语句后显式加lock in share mode或者for update来加共享锁或者排它锁。</p>
+<h4 id="那没有索引的条件下呢？没办法快速定位到数据行呢？"><a href="#那没有索引的条件下呢？没办法快速定位到数据行呢？" class="headerlink" title="那没有索引的条件下呢？没办法快速定位到数据行呢？"></a>那没有索引的条件下呢？没办法快速定位到数据行呢？</h4><p>若是没有索引的条件下，就获取所有行，都加上行锁，然后Mysql会再次过滤符合条件的的行并释放锁，只有符合条件的行才会继续持有锁。</p>
+<h4 id="datetime和-timestamp"><a href="#datetime和-timestamp" class="headerlink" title="datetime和 timestamp"></a>datetime和 timestamp</h4><p>datetime：保存格式为YYYYMMDDHHMMSS（年月日时分秒）的整数，它与时区无关，存入的是什么值就是什么值，不会根据当前时区进行转换。<br>存储范围: 1000-01-01 00:00:00 到’9999-12-31 23:59:59’ 长度，8个字节<br>timestamp：长度，4个字节<br>存储范围：’1970-01-01 00:00:01’ UTC to ‘2038-01-19 03:14:07 会随时区改变</p>
+<h4 id="Mysql-in和exists"><a href="#Mysql-in和exists" class="headerlink" title="Mysql in和exists"></a>Mysql in和exists</h4><p>IN 使用于大表驱动小表,exists适用于小表驱动大表的情况</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Interview/">Interview</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/08/2020-04-08-Redis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Redis</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/06/2020-04-06-Spring/">
+                        <span class="hidden-mobile">Spring</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Square</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证336300号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=336300"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备336300号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Mysql&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

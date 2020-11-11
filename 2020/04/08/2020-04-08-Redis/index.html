@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon_1.png">
+  <link rel="icon" type="image/png" href="/img/favicon_1.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Square">
+  <meta name="keywords" content="">
+  <title>Redis - 108 Keywords</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/darcula.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-08 00:00" pubdate>
+        2020年4月8日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      58
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Redis</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h5 id="1、为什么要用-redis-为什么要用缓存"><a href="#1、为什么要用-redis-为什么要用缓存" class="headerlink" title="1、为什么要用 redis/为什么要用缓存"></a>1、为什么要用 redis/为什么要用缓存</h5><p>高性能：操作缓存就是直接操作内存，所以速度相当快。如果数据库中的对应数据改变的之后，同步改变缓存中相应的数据即可！<br>高并发：直接操作缓存能够承受的请求是远远大于直接访问数据库的，所以我们可以考虑把数据库中的部分数据转移到缓存中去。  </p>
+<h5 id="2、为什么要用-redis-而不用-map-guava-做缓存"><a href="#2、为什么要用-redis-而不用-map-guava-做缓存" class="headerlink" title="2、为什么要用 redis 而不用 map/guava 做缓存?"></a>2、为什么要用 redis 而不用 map/guava 做缓存?</h5><p>使用 redis 或 memcached 之类的称为分布式缓存，在多实例的情况下，各实例共用一份缓存数据，缓存具有一致性。<br>缺点是需要保持 redis 或 memcached服务的高可用，整个程序架构上较为复杂。  </p>
+<h5 id="3、redis-的线程模型"><a href="#3、redis-的线程模型" class="headerlink" title="3、redis 的线程模型"></a>3、redis 的线程模型</h5><p>redis叫做单线程的模型。它采用 IO 多路复用机制同时监听多个 socket<br>文件事件处理器的结构包含 4 个部分： </p>
+<ul>
+<li>多个 socket  </li>
+<li>IO 多路复用程序  </li>
+<li>文件事件分派器  </li>
+<li>事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）     </li>
+</ul>
+<p>多个 socket 可能会并发产生不同的操作，每个操作对应不同的文件事件，但是 IO 多路复用程序会监听多个 socket，<br>会将 socket 产生的事件放入队列中排队，事件分派器每次从队列中取出一个事件，把该事件交给对应的事件处理器进行处理。      </p>
+<h5 id="4、redis-和-memcached-的区别"><a href="#4、redis-和-memcached-的区别" class="headerlink" title="4、redis 和 memcached 的区别"></a>4、redis 和 memcached 的区别</h5><ol>
+<li>redis支持更丰富的数据类型：Redis支持String,List,Set,Hash,ZSet(Sorted Set)等数据结构的存储。memcache支持String(二进制类型新增)数据类型，。     </li>
+<li>Redis支持数据的持久化(RDB+AOF)，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用,而Memecache把数据全部存在内存之中。     </li>
+<li>集群模式：memcached没有原生的集群模式，需要依靠客户端来实现往集群中分片写入数据；但是 redis 目前是原生支持 cluster 模式的.     </li>
+<li>Memcached是多线程，非阻塞IO复用的网络模型；Redis使用单线程的多路 IO 复用模型。         </li>
+</ol>
+<h5 id="5、redis-设置过期时间"><a href="#5、redis-设置过期时间" class="headerlink" title="5、redis 设置过期时间"></a>5、redis 设置过期时间</h5><p>定期删除+惰性删除。     </p>
+<ul>
+<li>定期删除：redis默认是每隔 100ms 就随机抽取一些设置了过期时间的key，检查其是否过期，如果过期就删除。     </li>
+<li>惰性删除 ：定期删除可能会导致很多过期 key 到了时间并没有被删除掉。所以就有了惰性删除。<br>假如你的过期 key，靠定期删除没有被删除掉，还停留在内存里，除非你的系统去查一下那个 key，才会被redis给删除掉。        </li>
+</ul>
+<h5 id="6、什么是缓存雪崩？"><a href="#6、什么是缓存雪崩？" class="headerlink" title="6、什么是缓存雪崩？"></a>6、什么是缓存雪崩？</h5><p>雪崩就是在大量redis突然失效的时候，请求在缓存无法获取进而去访问数据库，数据库压力过大导致服务器宕机的行为<br>缓存同一时间大面积的失效，所以，后面的请求都会落到数据库上，造成数据库短时间内承受大量请求而崩掉。     </p>
+<ul>
+<li>事前：尽量保证整个 redis 集群的高可用性，发现机器宕机尽快补上。选择合适的内存淘汰策略。     </li>
+<li>事中：本地ehcache缓存 + hystrix限流&amp;降级，避免MySQL崩掉     </li>
+<li>事后：利用 redis 持久化机制保存的数据尽快恢复缓存     </li>
+<li>设置不同的过期时间，防止同一时间内大量的key失效。</li>
+</ul>
+<h5 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h5><p>缓存击穿是指一个key非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个key在失效的瞬间，<br>持续的大并发就穿破缓存，直接请求数据库，瞬间对数据库的访问压力增大。<br>缓存击穿这里强调的是并发，造成缓存击穿的原因有以下两个：<br>该数据没有人查询过 ，第一次就大并发的访问。（冷门数据）<br>添加到了缓存，redis有设置数据失效的时间 ，这条数据刚好失效，大并发访问（热点数据）<br>对于缓存击穿的解决方案就是加锁</p>
+<h5 id="7、缓存穿透"><a href="#7、缓存穿透" class="headerlink" title="7、缓存穿透"></a>7、缓存穿透</h5><p>缓存穿透说简单点就是大量请求的 key 根本不存在于缓存中，导致请求直接到了数据库上，根本没有经过缓存这一层。<br>缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求。这时的用户很可能是攻击者，攻击会导致数据库压力过大<br>1）缓存无效 key : 如果缓存和数据库都查不到某个 key 的数据就写一个到 redis 中去并设置过期时间<br>2）布隆过滤器     代码维护复杂，效果很好<br>布隆过滤器是一种基于概率的数据结构，主要用来判断某个元素是否在集合内，它具有运行速度快（时间效率），占用内存小的优点（空间效率），<br>但是有一定的误识别率和删除困难的问题。它只能告诉你某个元素一定不在集合内或可能在集合内。<br>在布隆过滤器中引用了一个误判率的概念，即它可能会把不属于这个集合的元素认为可能属于这个集合，<br>但是不会把属于这个集合的认为不属于这个集合，布隆过滤器的特点如下：<br>一个非常大的二进制位数组 （数组里只有0和1）<br>若干个哈希函数<br>空间效率和查询效率高<br>不存在漏报（False Negative）：某个元素在某个集合中，肯定能报出来。<br>可能存在误报（False Positive）：某个元素不在某个集合中，可能也被爆出来。<br>不提供删除方法，代码维护困难。<br>位数组初始化都为0，它不存元素的具体值，当元素经过哈希函数哈希后的值（也就是数组下标）对应的数组位置值改为1。</p>
+<h5 id="8、Redis原理"><a href="#8、Redis原理" class="headerlink" title="8、Redis原理"></a>8、Redis原理</h5><p>Redis是基于内存操作数据，key-value数据结构，worker Thread(工作线程)是单线程，Redis 6.x版本 I/O threads<br>IO多路复用器select/poll/ePoll监听客户端是否有消息到达,通知redis实例去读取操作消息<br>I/O能不能读取:多路复用器<br>I/O:程序自己得去读取</p>
+<h5 id="9、Redis多路复用器ePoll解决了什么问题"><a href="#9、Redis多路复用器ePoll解决了什么问题" class="headerlink" title="9、Redis多路复用器ePoll解决了什么问题"></a>9、Redis多路复用器ePoll解决了什么问题</h5><p>1、IO多路复用器更有效率地获知哪些IO信息可以进行读写,不用进行全量的遍历<br>2、Redis单线程worker自己同步读取<br>3、Redis读取完进行计算<br>Redis单线程worker串行化处理，原子性，快</p>
+<p>Redis 6.x版本 I/O threads,计算交给worker线程，读取和写出交给I/O threads线程操作<br><img src="https://alwaysfaith.github.io/img/redis/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200508143507.jpg" srcset="/img/loading.gif"></p>
+<h5 id="10、Redis五大Value类型使用场景"><a href="#10、Redis五大Value类型使用场景" class="headerlink" title="10、Redis五大Value类型使用场景"></a>10、Redis五大Value类型使用场景</h5><ul>
+<li>String  字符串            append追加</li>
+<li>String  数值增减          decr/incr加减   点赞、统计、限流</li>
+<li>String  bitmap二进制位除   二进制     统计:任意用户,任意时间窗口内,登录天数  <div class="hljs"><pre><code>                               2E用戶,礼品？活跃用户？任意时间窗口，反复计算
+                               （数据分析 常驻内存 bitmap 临时导入redis 统计 报表）</code></pre></div>
+</li>
+<li>List 有序、存入顺序                              </li>
+<li>List 同向：栈                                   </li>
+<li>List 异向：队列                                    </li>
+<li>List 数组</li>
+<li>List ltrim 评论列表 缓冲数据 数据迁出，redis无状态</li>
+<li>Hash  HashMap 场景: 详情页–聚合数据  统计值:粉丝、点赞…</li>
+<li>Set  集合、去重、无序  多实例akf拆分 底层数据结构hashtable</li>
+<li>ZSet  场景: 分页、排行榜  如何实现排序的？ 底层数据结构:zipList,元素个数超过128或value字节超过64切换成skipList(跳表:空间效率和红黑树儿二叉树,属于空间换时间)<br><img src="https://alwaysfaith.github.io/img/redis/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200509170015.jpg" srcset="/img/loading.gif"></li>
+</ul>
+<p>二进制安全:客户端将数据变成字节(byte[])数组交予redis(redis/hbase/kafka )存储,不管客户端的数据类型</p>
+<h5 id="11、如何实现redis高可用的"><a href="#11、如何实现redis高可用的" class="headerlink" title="11、如何实现redis高可用的"></a>11、如何实现redis高可用的</h5><p>可以使用哨兵模式和Cluster集群来实现高可用,中小型使用哨兵，大型用集群模式<br>redis的哨兵模式: 当我们的主机master宕机之后，我们的slave会等待我们的master上线，再次期间不会进行任何操作，<br>这个时候我们可以手动的进行主机切换，将我们其中的一台从机slaver装换成我们的主机master，当原来的master恢复重新上线的时候，会自动沦为从机slave<br>可是我们无法知道redis什么时候宕机，所以我们需要他们自动的监控和进行主从切换，而哨兵提供了这些功能，监控，通知和自动的故障转移，最常见的哨兵模型就是一主二从三哨兵</p>
+<p>Sentinel（哨兵）是Redis的高可用性解决方案：由一个或多个Sentinel实例组成的Sentinel系统可以监视任意多个主服务器，<br>以及这些主服务器属下的所有从服务器，并在被监视的主服务器进入下线状态时，自动将下线主服务器属下的某个从服务器升级为新的主服务器。</p>
+<p>Redis-Cluster集群使用数据分片（sharding）而非一致性哈希（consistency hashing）来实现：<br>一个 Redis 集群包含 16384 个哈希槽（hash slot）， 数据库中的每个键都属于这 16384 个哈希槽的其中一个。<br>集群中的每个节点负责处理一部分哈希槽。 举个例子， 一个集群可以有三个哈希槽， 其中：</p>
+<ul>
+<li>节点 A 负责处理 0 号至 5500 号哈希槽。</li>
+<li>节点 B 负责处理 5501 号至 11000 号哈希槽。</li>
+<li>节点 C 负责处理 11001 号至 16384 号哈希槽。</li>
+</ul>
+<p>如果用户将新节点 D 添加到集群中， 那么集群只需要将节点 A 、B 、 C 中的某些槽移动到节点 D 就可以了。<br>增加一个D节点的结果可能如下：</p>
+<ul>
+<li>节点A覆盖1365-5460</li>
+<li>节点B覆盖6827-10922</li>
+<li>节点C覆盖12288-16383</li>
+<li>节点D覆盖0-1364,5461-6826,10923-1228</li>
+</ul>
+<p>主从复制模型<br>为了使得集群在一部分节点下线或者无法与集群的大多数（majority）节点进行通讯的情况下， 仍然可以正常运作， Redis 集群对节点使用了主从复制功能：<br>集群中的每个节点都有 1 个至 N 个复制品（replica）， 其中一个复制品为主节点（master）， 而其余的 N-1 个复制品为从节点（slave）。<br>在之前列举的节点 A 、B 、C 的例子中， 如果节点 B 下线了， 那么集群将无法正常运行， 因为集群找不到节点来处理 5501 号至 11000号的哈希槽。<br>另一方面， 假如在创建集群的时候（或者至少在节点 B 下线之前）， 我们为主节点 B 添加了从节点 B1 ， 那么当主节点 B 下线的时候， 集群就会将 B1 设置为新的主节点，<br>并让它代替下线的主节点 B ， 继续处理 5501 号至 11000 号的哈希槽， 这样集群就不会因为主节点 B 的下线而无法正常运作了。<br>不过如果节点 B 和 B1 都下线的话， Redis 集群还是会停止运作。</p>
+<p>Redis一致性保证<br>Redis 并不能保证数据的强一致性. 这意味这在实际中集群在特定的条件下可能会丢失写操作：<br>第一个原因是因为集群是用了异步复制. 写操作过程:</p>
+<p>客户端向主节点B写入一条命令.<br>主节点B向客户端回复命令状态.<br>主节点将写操作复制给他得从节点 B1, B2 和 B3<br>主节点对命令的复制工作发生在返回命令回复之后， 因为如果每次处理命令请求都需要等待复制操作完成的话， 那么主节点处理命令请求的速度将极大地降低<br>我们必须在性能和一致性之间做出权衡。<br>注意：Redis 集群可能会在将来提供同步写的方法。 Redis 集群另外一种可能会丢失命令的情况是集群出现了网络分区， 并且一个客户端与至少包括一个主节点在内的少数实例被孤立。<br>举个例子 假设集群包含 A 、 B 、 C 、 A1 、 B1 、 C1 六个节点，<br>其中 A 、B 、C 为主节点， A1 、B1 、C1 为A，B，C的从节点，<br>还有一个客户端 Z1 假设集群中发生网络分区，那么集群可能会分为两方，大部分的一方包含节点 A 、C 、A1 、B1 和 C1 ，小部分的一方则包含节点 B 和客户端 Z1 .<br>Z1仍然能够向主节点B中写入, 如果网络分区发生时间较短,那么集群将会继续正常运作,如果分区的时间足够让大部分的一方将B1选举为新的master，那么Z1写入B中得数据便丢失了.<br>注意， 在网络分裂出现期间， 客户端 Z1 可以向主节点 B 发送写命令的最大时间是有限制的， 这一时间限制称为节点超时时间（node timeout），<br>是 Redis 集群的一个重要的配置选项</p>
+<h5 id="12、redis的持久化"><a href="#12、redis的持久化" class="headerlink" title="12、redis的持久化"></a>12、redis的持久化</h5><p>rdb(Redis DataBase)是redis默认的持久化方式，在指定的时间间隔内将内存中的数据集快照（Snapshot）写入磁盘的二进制文件，所产生的也就是dump.rdb文件，<br>它恢复时是将快照文件直接读到内存里。基于时间窗口，全量数据，加载快，rdb文件，丢失一大部分数据,开机恢复数据快,写入持久化文件快<br>RDB持久化的时候会单独fork一个与当前进程一摸一样的子进程来进行持久化<br>在RDB机制中触发内存中的数据进行持久化</p>
+<ol>
+<li>save命令 (save命令不会fork子进程，通过阻塞当前Redis服务器，直到RDB完成为止，所以该命令在生产中一般不会使用)</li>
+<li>bgsave命令 (bgsave命令会在后台fork一个与Redis主线程一模一样的子线程，由子线程负责内存中的数据持久化。)</li>
+<li>自动化 (save 300 10则表示300秒内如果至少有10个key值发生变化，则进行持久化，save 60 10000以此类推)</li>
+</ol>
+<p>通过以上的分析可以得出以下save和bgsave的对比区别:</p>
+<ol>
+<li>save是同步持久化数据，而bgsave是异步持久化数据。</li>
+<li>save不会fork子进程，通过主进程持久化数据，会阻塞处理客户端的请求，而bdsave会fork子进程持久化数据，同时还可以处理客户端请求，高效。</li>
+<li>save不会消耗内存，而bgsave会消耗内存。<br>RDB的优缺点:<br>缺点： RDB持久化后的文件是紧凑的二进制文件，适合于备份、全量复制、大规模数据恢复的场景，对数据完整性和一致性要求不高，RDB会丢失最后一次快照的数据。<br>优点： 开机的恢复数据快，写入持久化文件快</li>
+</ol>
+<p>aof(Append Only File)是以日志的形式来记录每个写操作，将Redis执行过的所有写指令记录下来(读操作不记录)，只许追加文件但不可以改写文件，<br>redis启动之初会读取该文件重新构建数据基于实时完整的每一个操作，追加到日志文件 缺点:1.加载慢 2.有冗余<br>AOF持久化机制是以日志的形式记录Redis中的每一次的增删改操作，不会记录查询操作，以文本的形式记录，打开记录的日志文件就可以查看操作记录。<br>AOF是默认不开启的，若是想开启AOF，只需要把appendonly no修改为appendonly yes即可开启<br>AOF触发机制:</p>
+<ol>
+<li>no：表示等操作系统等数据缓存同步到磁盘中（快、持久化没保证）。</li>
+<li>always：同步持久化，每次发生数据变更时，就会立即记录到磁盘中（慢，安全）。</li>
+<li>everysec：表示每秒同步一次（默认值，很快，但是会丢失一秒内的数据）。<br>AOF中每秒同步也是异步完成的，效率是非常高的，由于该机制对日志文件的写入操作是采用append的形式。</li>
+</ol>
+<p>所谓的无效的的操作，举个例子，比如某一时刻对一个k++，然后后面的某一时刻k–，这样k的值是保持不变的，那么这两次的操作就是无效的。<br>如果像这样的无效操作很多，记录的文件臃肿，就浪费了资源空间，所以在Redis中出现了rewrite机制。<br>redis提供了bgrewriteaof命令。将内存中的数据以命令的方式保存到临时文件中，同时会fork出一条新进程来将文件重写。<br>重写操作也会fork一个子进程来处理重写操作，重写以内存中的数据作为重写的源，避免了操作的冗余性，保证了数据的最新。</p>
+<p>AOF的优缺点<br>优点： AOF更好保证数据不会被丢失，最多只丢失一秒内的数据，通过fork一个子进程处理持久化操作，保证了主进程不会进程io操作，能高效的处理客户端的请求。<br>另外重写操作保证了数据的有效性，即使日志文件过大也会进行重写。<br>AOF的日志文件的记录可读性非常的高，即使某一时刻有人执行flushall清空了所有数据，只需要拿到aof的日志文件，然后把最后一条的flushall给删除掉，就可以恢复数据。<br>缺点：  对于相同数量的数据集而言，AOF文件通常要大于RDB文件。RDB 在恢复大数据集时的速度比 AOF 的恢复速度要快。AOF在运行效率上往往会慢于RDB。</p>
+<p>混合持久化:<br>混合持久化也是通过bgrewriteaof来完成的，不同的是当开启混合持久化时，fork出的子进程先将共享内存的数据以RDB方式写入aof文件中，<br>然后再将重写缓冲区的增量命令以AOF方式写入文件中。<br>写入完成后通知主进程统计信息，并将新的含有RDB格式和AOF格式的AOF文件替换旧的AOF文件。<br>简单的说：新的AOF文件前半段是以RDB格式的全量数据后半段是AOF格式的增量数据。<br>优点： 混合持久化结合RDB持久化和AOF持久化的优点，由于绝大部分的格式是RDB格式，加载速度快，增量数据以AOF方式保存，数据更少的丢失。</p>
+<h5 id="13、如何实现分布式锁"><a href="#13、如何实现分布式锁" class="headerlink" title="13、如何实现分布式锁"></a>13、如何实现分布式锁</h5><p>单机模式下可以使用set nx px去设置锁<br>保证锁的原子性和失效时间 在集群模式下使用Redlock去实现分布式锁，redisson对Redlock算法进行了封装<br>基于zookeeper实现分布式锁</p>
+<h5 id="14、redis单线程的还怎么快"><a href="#14、redis单线程的还怎么快" class="headerlink" title="14、redis单线程的还怎么快"></a>14、redis单线程的还怎么快</h5><p>采用了多路IO复用，多路指的是多个连接，复用是使用同一个线程 基于内存，而内存的读写速度非常快 单线程减少了上下文切换线程的时间</p>
+<h5 id="15、redis-的String的容量是多大"><a href="#15、redis-的String的容量是多大" class="headerlink" title="15、redis 的String的容量是多大"></a>15、redis 的String的容量是多大</h5><p>512M</p>
+<h5 id="Redis过期策略"><a href="#Redis过期策略" class="headerlink" title="Redis过期策略"></a>Redis过期策略</h5><p>Redis是使用定期删除+惰性删除两者配合的过期策略<br>定期删除: 定期删除指的是Redis默认每隔100ms就随机抽取一些设置了过期时间的key，检测这些key是否过期，如果过期了就将其删掉<br>惰性删除:惰性删除不再是Redis去主动删除，而是在客户端要获取某个key的时候，Redis会先去检测一下这个key是否已经过期，如果没有过期则返回给客户端，<br>如果已经过期了，那么Redis会删除这个key，不会返回给客户端。</p>
+<h5 id="Redis内存淘汰机制"><a href="#Redis内存淘汰机制" class="headerlink" title="Redis内存淘汰机制"></a>Redis内存淘汰机制</h5><p>Redis在使用内存达到某个阈值（通过maxmemory配置)的时候，就会触发内存淘汰机制，选取一些key来删除。内存淘汰有许多策略<br>noeviction：当内存不足以容纳新写入数据时，新写入操作会报错。默认策略<br>allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key<br>allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key<br>volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key<br>volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key<br>volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除。<br>比较推荐的是两种lru策略。根据自己的业务需求。如果你使用Redis只是作为缓存，不作为DB持久化，那推荐选择allkeys-lru<br>如果你使用Redis同时用于缓存和数据持久化，那推荐选择volatile-lru</p>
+<h5 id="redis为什么使用单线程？"><a href="#redis为什么使用单线程？" class="headerlink" title="redis为什么使用单线程？"></a>redis为什么使用单线程？</h5><p>因为CPU不是Redis的瓶颈。Redis的瓶颈最有可能是机器内存或者网络带宽。<br>（以上主要来自官方FAQ）既然单线程容易实现，而且CPU不会成为瓶颈，那就顺理成章地采用单线程的方案了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Interview/">Interview</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/09/2020-04-09-Mybatis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Mybatis</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/07/2020-04-07-Mysql/">
+                        <span class="hidden-mobile">Mysql</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Square</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">京ICP证336300号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=336300"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>京公网安备336300号</span>
+      </a>
+     
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Redis&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
