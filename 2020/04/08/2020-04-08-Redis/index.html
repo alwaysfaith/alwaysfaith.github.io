@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -15,7 +15,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
-  <meta name="author" content="Square">
+  <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   <title>Redis - 108 Keywords</title>
 
@@ -60,7 +60,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Square</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -162,7 +162,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/wallhaven-zm3mxw.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-04-08 00:00" pubdate>
-        2020年4月8日 凌晨
+      <time datetime="2020-04-08 10:00" pubdate>
+        2020年4月8日 上午
       </time>
     </span>
   
@@ -264,7 +264,7 @@
 <h5 id="7、缓存穿透"><a href="#7、缓存穿透" class="headerlink" title="7、缓存穿透"></a>7、缓存穿透</h5><p>缓存穿透说简单点就是大量请求的 key 根本不存在于缓存中，导致请求直接到了数据库上，根本没有经过缓存这一层。<br>缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求。这时的用户很可能是攻击者，攻击会导致数据库压力过大<br>1）缓存无效 key : 如果缓存和数据库都查不到某个 key 的数据就写一个到 redis 中去并设置过期时间<br>2）布隆过滤器     代码维护复杂，效果很好<br>布隆过滤器是一种基于概率的数据结构，主要用来判断某个元素是否在集合内，它具有运行速度快（时间效率），占用内存小的优点（空间效率），<br>但是有一定的误识别率和删除困难的问题。它只能告诉你某个元素一定不在集合内或可能在集合内。<br>在布隆过滤器中引用了一个误判率的概念，即它可能会把不属于这个集合的元素认为可能属于这个集合，<br>但是不会把属于这个集合的认为不属于这个集合，布隆过滤器的特点如下：<br>一个非常大的二进制位数组 （数组里只有0和1）<br>若干个哈希函数<br>空间效率和查询效率高<br>不存在漏报（False Negative）：某个元素在某个集合中，肯定能报出来。<br>可能存在误报（False Positive）：某个元素不在某个集合中，可能也被爆出来。<br>不提供删除方法，代码维护困难。<br>位数组初始化都为0，它不存元素的具体值，当元素经过哈希函数哈希后的值（也就是数组下标）对应的数组位置值改为1。</p>
 <h5 id="8、Redis原理"><a href="#8、Redis原理" class="headerlink" title="8、Redis原理"></a>8、Redis原理</h5><p>Redis是基于内存操作数据，key-value数据结构，worker Thread(工作线程)是单线程，Redis 6.x版本 I/O threads<br>IO多路复用器select/poll/ePoll监听客户端是否有消息到达,通知redis实例去读取操作消息<br>I/O能不能读取:多路复用器<br>I/O:程序自己得去读取</p>
 <h5 id="9、Redis多路复用器ePoll解决了什么问题"><a href="#9、Redis多路复用器ePoll解决了什么问题" class="headerlink" title="9、Redis多路复用器ePoll解决了什么问题"></a>9、Redis多路复用器ePoll解决了什么问题</h5><p>1、IO多路复用器更有效率地获知哪些IO信息可以进行读写,不用进行全量的遍历<br>2、Redis单线程worker自己同步读取<br>3、Redis读取完进行计算<br>Redis单线程worker串行化处理，原子性，快</p>
-<p>Redis 6.x版本 I/O threads,计算交给worker线程，读取和写出交给I/O threads线程操作<br><img src="https://alwaysfaith.github.io/img/redis/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200508143507.jpg" srcset="/img/loading.gif"></p>
+<p>Redis 6.x版本 I/O threads,计算交给worker线程，读取和写出交给I/O threads线程操作<br><img src="/img/redis/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200508143507.jpg" srcset="/img/loading.gif"></p>
 <h5 id="10、Redis五大Value类型使用场景"><a href="#10、Redis五大Value类型使用场景" class="headerlink" title="10、Redis五大Value类型使用场景"></a>10、Redis五大Value类型使用场景</h5><ul>
 <li>String  字符串            append追加</li>
 <li>String  数值增减          decr/incr加减   点赞、统计、限流</li>
@@ -278,7 +278,7 @@
 <li>List ltrim 评论列表 缓冲数据 数据迁出，redis无状态</li>
 <li>Hash  HashMap 场景: 详情页–聚合数据  统计值:粉丝、点赞…</li>
 <li>Set  集合、去重、无序  多实例akf拆分 底层数据结构hashtable</li>
-<li>ZSet  场景: 分页、排行榜  如何实现排序的？ 底层数据结构:zipList,元素个数超过128或value字节超过64切换成skipList(跳表:空间效率和红黑树儿二叉树,属于空间换时间)<br><img src="https://alwaysfaith.github.io/img/redis/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200509170015.jpg" srcset="/img/loading.gif"></li>
+<li>ZSet  场景: 分页、排行榜  如何实现排序的？ 底层数据结构:zipList,元素个数超过128或value字节超过64切换成skipList(跳表:空间效率和红黑树儿二叉树,属于空间换时间)<br><img src="/img/redis/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200509170015.jpg" srcset="/img/loading.gif"></li>
 </ul>
 <p>二进制安全:客户端将数据变成字节(byte[])数组交予redis(redis/hbase/kafka )存储,不管客户端的数据类型</p>
 <h5 id="11、如何实现redis高可用的"><a href="#11、如何实现redis高可用的" class="headerlink" title="11、如何实现redis高可用的"></a>11、如何实现redis高可用的</h5><p>可以使用哨兵模式和Cluster集群来实现高可用,中小型使用哨兵，大型用集群模式<br>redis的哨兵模式: 当我们的主机master宕机之后，我们的slave会等待我们的master上线，再次期间不会进行任何操作，<br>这个时候我们可以手动的进行主机切换，将我们其中的一台从机slaver装换成我们的主机master，当原来的master恢复重新上线的时候，会自动沦为从机slave<br>可是我们无法知道redis什么时候宕机，所以我们需要他们自动的监控和进行主从切换，而哨兵提供了这些功能，监控，通知和自动的故障转移，最常见的哨兵模型就是一主二从三哨兵</p>
@@ -332,11 +332,20 @@
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Interview/">Interview</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Interview/">Interview</a>
+                      <a class="hover-with-bg" href="/tags/Redis/">Redis</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
                     
                   </div>
                 

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -60,7 +60,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Square</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -233,29 +233,29 @@
             
             <div class="markdown-body" id="post-body">
               <h2 id="Collections-toMap作用"><a href="#Collections-toMap作用" class="headerlink" title="Collections.toMap作用"></a>Collections.toMap作用</h2><p>将list按照规则转成map</p>
-<div class="hljs"><pre><code class="hljs java">UserVO userVO1 = <span class="hljs-keyword">new</span> UserVO(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>);
-UserVO userVO2 = <span class="hljs-keyword">new</span> UserVO(<span class="hljs-keyword">null</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>);
-UserVO userVO3 = <span class="hljs-keyword">new</span> UserVO(<span class="hljs-string">&quot;A1&quot;</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>);
-UserVO userVO4 = <span class="hljs-keyword">new</span> UserVO(<span class="hljs-string">&quot;A2&quot;</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>);
-UserVO userVO5 = <span class="hljs-keyword">null</span>;
-UserVO userVO6 = <span class="hljs-keyword">new</span> UserVO();
-UserVO userVO7 = <span class="hljs-keyword">new</span> UserVO();
-List&lt;UserVO&gt; voList = Arrays.asList(userVO1, userVO2, userVO3,userVO4,userVO5,userVO6,userVO7);
-Map&lt;String, String&gt; stringMap = Optional.ofNullable(voList)
+<div class="hljs"><pre><code class="hljs reasonml">UserVO userVO1 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UserVO(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>)</span>;
+UserVO userVO2 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UserVO(<span class="hljs-params">null</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>)</span>;
+UserVO userVO3 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UserVO(<span class="hljs-string">&quot;A1&quot;</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>)</span>;
+UserVO userVO4 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UserVO(<span class="hljs-string">&quot;A2&quot;</span>, <span class="hljs-string">&quot;b1&quot;</span>, <span class="hljs-string">&quot;c1&quot;</span>, <span class="hljs-string">&quot;d1&quot;</span>)</span>;
+UserVO userVO5 = null;
+UserVO userVO6 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UserVO()</span>;
+UserVO userVO7 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">UserVO()</span>;
+List&lt;UserVO&gt; voList = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Arrays</span>.</span></span><span class="hljs-keyword">as</span><span class="hljs-constructor">List(<span class="hljs-params">userVO1</span>, <span class="hljs-params">userVO2</span>, <span class="hljs-params">userVO3</span>,<span class="hljs-params">userVO4</span>,<span class="hljs-params">userVO5</span>,<span class="hljs-params">userVO6</span>,<span class="hljs-params">userVO7</span>)</span>;
+Map&lt;String, String&gt; stringMap = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Optional</span>.</span></span><span class="hljs-keyword">of</span><span class="hljs-constructor">Nullable(<span class="hljs-params">voList</span>)</span>
         .map(Collection::stream)
-        .orElse(Stream.empty())
-        .collect(Collectors.toMap(UserVO::getId, UserVO::getUsername));</code></pre></div>
+        .<span class="hljs-keyword">or</span><span class="hljs-constructor">Else(Stream.<span class="hljs-params">empty</span>()</span>)
+        .collect(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Collectors</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">Map(UserVO::<span class="hljs-params">getId</span>, UserVO::<span class="hljs-params">getUsername</span>)</span>);</code></pre></div>
 
 <h2 id="Collections-toMap-存在的问题"><a href="#Collections-toMap-存在的问题" class="headerlink" title="Collections.toMap 存在的问题"></a>Collections.toMap 存在的问题</h2><ol>
 <li>空指针（map中value是null导致,map中key可以为null）</li>
-<li>key值重复（Map中的key不能重复）<h3 id="1-解决方式"><a href="#1-解决方式" class="headerlink" title="1.解决方式"></a>1.解决方式</h3>使用stream的collect的重载方法：<div class="hljs"><pre><code class="hljs java">Map&lt;String, String&gt; stringHashMap = Optional.ofNullable(voList)
+<li>key值重复（Map中的key不能重复）<h3 id="1-解决方式"><a href="#1-解决方式" class="headerlink" title="1.解决方式"></a>1.解决方式</h3>使用stream的collect的重载方法：<div class="hljs"><pre><code class="hljs reasonml">Map&lt;String, String&gt; stringHashMap = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Optional</span>.</span></span><span class="hljs-keyword">of</span><span class="hljs-constructor">Nullable(<span class="hljs-params">voList</span>)</span>
         .map(Collection::stream)
-        .orElse(Stream.empty())
+        .<span class="hljs-keyword">or</span><span class="hljs-constructor">Else(Stream.<span class="hljs-params">empty</span>()</span>)
         .collect(HashMap::<span class="hljs-keyword">new</span>, (m, v) -&gt;
-                m.put(v.getId(), v.getUsername()), HashMap::putAll);
-System.err.println(<span class="hljs-keyword">new</span> Gson().toJson(stringHashMap));
+                m.put(v.get<span class="hljs-constructor">Id()</span>, v.get<span class="hljs-constructor">Username()</span>), HashMap::putAll);
+<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>err.println(<span class="hljs-keyword">new</span> <span class="hljs-constructor">Gson()</span>.<span class="hljs-keyword">to</span><span class="hljs-constructor">Json(<span class="hljs-params">stringHashMap</span>)</span>);
 <span class="hljs-comment">//&#123;&quot;&quot;:&quot;b1&quot;,&quot;A1&quot;:&quot;b1&quot;,&quot;A2&quot;:&quot;b1&quot;&#125;</span></code></pre></div>
-<h3 id="2-解决方式"><a href="#2-解决方式" class="headerlink" title="2.解决方式"></a>2.解决方式</h3>过滤Map中key，value不为空<div class="hljs"><pre><code class="hljs java">Map&lt;String, String&gt; stringMap2 = Optional.ofNullable(voList)
+<h3 id="2-解决方式"><a href="#2-解决方式" class="headerlink" title="2.解决方式"></a>2.解决方式</h3>过滤Map中key，value不为空<div class="hljs"><pre><code class="hljs elixir">Map&lt;String, String&gt; stringMap2 = Optional.ofNullable(voList)
               .map(Collection::stream)
               .orElse(Stream.empty())
               .filter(Objects::nonNull)
@@ -264,9 +264,9 @@ System.err.println(<span class="hljs-keyword">new</span> Gson().toJson(stringHas
               .collect(Collectors.toMap(UserVO::getId,
                       UserVO::getUsername,
                       (left, right) -&gt; right));
-      System.err.println(<span class="hljs-keyword">new</span> Gson().toJson(stringMap));
-      <span class="hljs-comment">//&#123;&quot;A1&quot;:&quot;b1&quot;,&quot;A2&quot;:&quot;b1&quot;&#125;</span></code></pre></div>
-<h3 id="3-解决方式"><a href="#3-解决方式" class="headerlink" title="3.解决方式"></a>3.解决方式</h3><div class="hljs"><pre><code class="hljs java">Map&lt;String, String&gt; hashMap = Optional.ofNullable(voList)
+      System.err.println(new Gson().toJson(stringMap));
+      /<span class="hljs-regexp">/&#123;&quot;A1&quot;:&quot;b1&quot;,&quot;A2&quot;:&quot;b1&quot;&#125;</span></code></pre></div>
+<h3 id="3-解决方式"><a href="#3-解决方式" class="headerlink" title="3.解决方式"></a>3.解决方式</h3><div class="hljs"><pre><code class="hljs elixir">Map&lt;String, String&gt; hashMap = Optional.ofNullable(voList)
            .map(Collection::stream)
            .orElse(Stream.empty())
           .filter(Objects::nonNull)
@@ -276,9 +276,9 @@ System.err.println(<span class="hljs-keyword">new</span> Gson().toJson(stringHas
                    UserVO::getId,
                    UserVO::getUsername,
                    (left, right) -&gt; right,
-                   HashMap::<span class="hljs-keyword">new</span>));
-   System.err.println(<span class="hljs-keyword">new</span> Gson().toJson(hashMap));
-   <span class="hljs-comment">//&#123;&quot;A1&quot;:&quot;b1&quot;,&quot;A2&quot;:&quot;b1&quot;&#125;</span></code></pre></div></li>
+                   HashMap::new));
+   System.err.println(new Gson().toJson(hashMap));
+   /<span class="hljs-regexp">/&#123;&quot;A1&quot;:&quot;b1&quot;,&quot;A2&quot;:&quot;b1&quot;&#125;</span></code></pre></div></li>
 </ol>
 
             </div>
@@ -289,7 +289,7 @@ System.err.println(<span class="hljs-keyword">new</span> Gson().toJson(stringHas
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      <a class="hover-with-bg" href="/categories/Java8/">Java8</a>
                     
                   </div>
                 
@@ -298,6 +298,8 @@ System.err.println(<span class="hljs-keyword">new</span> Gson().toJson(stringHas
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Java8/">Java8</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Map/">Map</a>
                     
                   </div>
                 

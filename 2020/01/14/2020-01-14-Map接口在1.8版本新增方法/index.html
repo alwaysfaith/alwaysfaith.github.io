@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -60,7 +60,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Square</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -252,141 +252,141 @@
 <li>computeIfAbsent</li>
 <li>computeIfPresent</li>
 <li>compute</li>
-<li>merge<h3 id="V-getOrDefault-Object-key-V-defaultValue"><a href="#V-getOrDefault-Object-key-V-defaultValue" class="headerlink" title="V getOrDefault(Object key, V defaultValue)"></a>V getOrDefault(Object key, V defaultValue)</h3>这可以说是最常用的方法了吧,获取指定key的value,当key不存在的时候返回一个默认值,也就是第二个参数.<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">getOrDefault</span><span class="hljs-params">(Object key, V defaultValue)</span> </span>&#123;
+<li>merge<h3 id="V-getOrDefault-Object-key-V-defaultValue"><a href="#V-getOrDefault-Object-key-V-defaultValue" class="headerlink" title="V getOrDefault(Object key, V defaultValue)"></a>V getOrDefault(Object key, V defaultValue)</h3>这可以说是最常用的方法了吧,获取指定key的value,当key不存在的时候返回一个默认值,也就是第二个参数.<div class="hljs"><pre><code class="hljs processing"><span class="hljs-keyword">default</span> V getOrDefault(<span class="hljs-keyword">Object</span> <span class="hljs-built_in">key</span>, V defaultValue) &#123;
        V v;
-       <span class="hljs-keyword">return</span> (((v = get(key)) != <span class="hljs-keyword">null</span>) || containsKey(key))
+       <span class="hljs-keyword">return</span> (((v = <span class="hljs-built_in">get</span>(<span class="hljs-built_in">key</span>)) != <span class="hljs-keyword">null</span>) || containsKey(<span class="hljs-built_in">key</span>))
            ? v
            : defaultValue;
    &#125;</code></pre></div>
 <h3 id="void-replaceAll-BiFunction-lt-super-K-super-V-extends-V-gt-function"><a href="#void-replaceAll-BiFunction-lt-super-K-super-V-extends-V-gt-function" class="headerlink" title="void replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function)"></a>void replaceAll(BiFunction&lt;? super K, ? super V, ? extends V&gt; function)</h3>将所有value替换成给定lambda的计算结果,lambda的作用为根据key和value算出新的value.</li>
 </ul>
 <p>源代码如下:</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">replaceAll</span><span class="hljs-params">(BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; function)</span> </span>&#123;
-        Objects.requireNonNull(function);
-        <span class="hljs-keyword">for</span> (Map.Entry&lt;K, V&gt; entry : entrySet()) &#123;
+<div class="hljs"><pre><code class="hljs reasonml">default void replace<span class="hljs-constructor">All(BiFunction&lt;? <span class="hljs-params">super</span> K, ? <span class="hljs-params">super</span> V, ? <span class="hljs-params">extends</span> V&gt; <span class="hljs-params">function</span>)</span> &#123;
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Objects</span>.</span></span>require<span class="hljs-constructor">NonNull(<span class="hljs-params">function</span>)</span>;
+        <span class="hljs-keyword">for</span> (Map.Entry&lt;K, V&gt; entry : entry<span class="hljs-constructor">Set()</span>) &#123;
             K k;
             V v;
             <span class="hljs-keyword">try</span> &#123;
-                k = entry.getKey();
-                v = entry.getValue();
-            &#125; <span class="hljs-keyword">catch</span>(IllegalStateException ise) &#123;
+                k = entry.get<span class="hljs-constructor">Key()</span>;
+                v = entry.get<span class="hljs-constructor">Value()</span>;
+            &#125; catch(IllegalStateException ise) &#123;
                 <span class="hljs-comment">// this usually means the entry is no longer in the map.</span>
-                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException(ise);
+                throw <span class="hljs-keyword">new</span> <span class="hljs-constructor">ConcurrentModificationException(<span class="hljs-params">ise</span>)</span>;
             &#125;
 
             <span class="hljs-comment">// ise thrown from function is not a cme.</span>
-            v = function.apply(k, v);
+            v = <span class="hljs-keyword">function</span>.apply(k, v);
 
             <span class="hljs-keyword">try</span> &#123;
-                entry.setValue(v);
-            &#125; <span class="hljs-keyword">catch</span>(IllegalStateException ise) &#123;
+                entry.set<span class="hljs-constructor">Value(<span class="hljs-params">v</span>)</span>;
+            &#125; catch(IllegalStateException ise) &#123;
                 <span class="hljs-comment">// this usually means the entry is no longer in the map.</span>
-                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException(ise);
+                throw <span class="hljs-keyword">new</span> <span class="hljs-constructor">ConcurrentModificationException(<span class="hljs-params">ise</span>)</span>;
             &#125;
         &#125;
     &#125;</code></pre></div>
 <p>示例代码如下:</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
-   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> </span>&#123;
-       Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+<div class="hljs"><pre><code class="hljs reasonml">@Test
+   public void test1<span class="hljs-literal">()</span> &#123;
+       Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;<span class="hljs-literal">()</span>;
        test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
        test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-       System.out.println(test.toString());
+       <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(test.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>);
 
-       test.replaceAll((k, v) -&gt; k + v);
-       System.out.println(test.toString());
+       test.replace<span class="hljs-constructor">All((<span class="hljs-params">k</span>, <span class="hljs-params">v</span>)</span> -&gt; k + v);
+       <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(test.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>);
    &#125;</code></pre></div>
 <p>这段代码中传递了一个lambda,作用是将key和value相加作为新的value.</p>
 <p>输出结果如下:</p>
-<div class="hljs"><pre><code class="hljs java">&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
+<div class="hljs"><pre><code class="hljs angelscript">&#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">2</span>, <span class="hljs-number">2</span>=<span class="hljs-number">4</span>&#125;</code></pre></div>
 <h3 id="V-putIfAbsent-K-key-V-value"><a href="#V-putIfAbsent-K-key-V-value" class="headerlink" title="V putIfAbsent(K key, V value)"></a>V putIfAbsent(K key, V value)</h3><p>当key不存在的时候,写入新值.始终返回执行操作后的新值.</p>
 <p>源代码如下:</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">putIfAbsent</span><span class="hljs-params">(K key, V value)</span> </span>&#123;
-        V v = get(key);
-        <span class="hljs-keyword">if</span> (v == <span class="hljs-keyword">null</span>) &#123;
-            v = put(key, value);
+<div class="hljs"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-literal">default</span> V <span class="hljs-title">putIfAbsent</span>(<span class="hljs-params">K key, V <span class="hljs-keyword">value</span></span>)</span> &#123;
+        V v = <span class="hljs-keyword">get</span>(key);
+        <span class="hljs-keyword">if</span> (v == <span class="hljs-literal">null</span>) &#123;
+            v = put(key, <span class="hljs-keyword">value</span>);
         &#125;
 
         <span class="hljs-keyword">return</span> v;
     &#125;</code></pre></div>
 <p>测试代码及输出如下:</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> </span>&#123;
-        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+<div class="hljs"><pre><code class="hljs angelscript">@Test
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> test2() &#123;
+        Map&lt;Integer, Integer&gt; test = new HashMap&lt;&gt;();
         test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
         test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
 
         test.putIfAbsent(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>);
         test.putIfAbsent(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
     &#125;
 ------------------------
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>, <span class="hljs-number">3</span>=<span class="hljs-number">3</span>&#125;
 </code></pre></div>
 <h3 id="boolean-remove-Object-key-Object-value"><a href="#boolean-remove-Object-key-Object-value" class="headerlink" title="boolean remove(Object key, Object value)"></a>boolean remove(Object key, Object value)</h3><p>如果给定的key在map中的value与给定值相等,则移除并且返回true,否则返回false.</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">remove</span><span class="hljs-params">(Object key, Object value)</span> </span>&#123;
-        Object curValue = get(key);
+<div class="hljs"><pre><code class="hljs processing"><span class="hljs-keyword">default</span> <span class="hljs-built_in">boolean</span> remove(<span class="hljs-keyword">Object</span> <span class="hljs-built_in">key</span>, <span class="hljs-keyword">Object</span> value) &#123;
+        <span class="hljs-keyword">Object</span> curValue = <span class="hljs-built_in">get</span>(<span class="hljs-built_in">key</span>);
         <span class="hljs-keyword">if</span> (!Objects.equals(curValue, value) ||
-            (curValue == <span class="hljs-keyword">null</span> &amp;&amp; !containsKey(key))) &#123;
+            (curValue == <span class="hljs-keyword">null</span> &amp;&amp; !containsKey(<span class="hljs-built_in">key</span>))) &#123;
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
         &#125;
-        remove(key);
+        remove(<span class="hljs-built_in">key</span>);
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
     &#125;</code></pre></div>
 <h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><p>这个有两个重载方法.</p>
 <h3 id="default-boolean-replace-K-key-V-oldValue-V-newValue"><a href="#default-boolean-replace-K-key-V-oldValue-V-newValue" class="headerlink" title="default boolean replace(K key, V oldValue, V newValue)"></a>default boolean replace(K key, V oldValue, V newValue)</h3><p>当key在map中的value与给定的oldValue相等,则用newValue替换掉并且返回true,否则返回false.</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">replace</span><span class="hljs-params">(K key, V oldValue, V newValue)</span> </span>&#123;
-        Object curValue = get(key);
+<div class="hljs"><pre><code class="hljs processing"><span class="hljs-keyword">default</span> <span class="hljs-built_in">boolean</span> replace(K <span class="hljs-built_in">key</span>, V oldValue, V newValue) &#123;
+        <span class="hljs-keyword">Object</span> curValue = <span class="hljs-built_in">get</span>(<span class="hljs-built_in">key</span>);
         <span class="hljs-keyword">if</span> (!Objects.equals(curValue, oldValue) ||
-            (curValue == <span class="hljs-keyword">null</span> &amp;&amp; !containsKey(key))) &#123;
+            (curValue == <span class="hljs-keyword">null</span> &amp;&amp; !containsKey(<span class="hljs-built_in">key</span>))) &#123;
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
         &#125;
-        put(key, newValue);
+        put(<span class="hljs-built_in">key</span>, newValue);
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
     &#125;
 </code></pre></div>
 <h3 id="V-replace-K-key-V-value"><a href="#V-replace-K-key-V-value" class="headerlink" title="V replace(K key, V value)"></a>V replace(K key, V value)</h3><p>当key存在,就替换掉并且返回新值,否则返回null.</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">replace</span><span class="hljs-params">(K key, V value)</span> </span>&#123;
+<div class="hljs"><pre><code class="hljs xquery"><span class="hljs-keyword">default</span> V<span class="hljs-built_in"> replace</span>(K<span class="hljs-built_in"> key</span>, V <span class="hljs-keyword">value</span>) &#123;
         V curValue;
-        <span class="hljs-keyword">if</span> (((curValue = get(key)) != <span class="hljs-keyword">null</span>) || containsKey(key)) &#123;
-            curValue = put(key, value);
+        <span class="hljs-keyword">if</span> (((curValue = get<span class="hljs-built_in">(key</span>)) != null) || containsKey<span class="hljs-built_in">(key</span>)) &#123;
+            curValue = put<span class="hljs-built_in">(key</span>, <span class="hljs-keyword">value</span>);
         &#125;
         <span class="hljs-keyword">return</span> curValue;
     &#125;
 </code></pre></div>
 <h3 id="V-computeIfAbsent-K-key-Function-lt-super-K-extends-V-gt-mappingFunction"><a href="#V-computeIfAbsent-K-key-Function-lt-super-K-extends-V-gt-mappingFunction" class="headerlink" title="V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)"></a>V computeIfAbsent(K key, Function&lt;? super K, ? extends V&gt; mappingFunction)</h3><p>如果key不存在,则使用lambda计算并写入新值.永远返回执行操作后的新值.(可以存在,不做任何操作);放回计算的新值.</p>
 <p>这个方法可以为一些耗时或者耗资源的操作构建本地缓存,当元素存在时直接返回,当不存在的时候进行耗时进行并存储,下一次可以直接返回.</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">computeIfAbsent</span><span class="hljs-params">(K key,</span></span>
-<span class="hljs-function"><span class="hljs-params">            Function&lt;? <span class="hljs-keyword">super</span> K, ? extends V&gt; mappingFunction)</span> </span>&#123;
+<div class="hljs"><pre><code class="hljs haxe"><span class="hljs-keyword">default</span> V computeIfAbsent(K key,
+            Function&lt;? <span class="hljs-keyword">super</span> K, ? extends V&gt; mappingFunction) &#123;
         Objects.requireNonNull(mappingFunction);
         V v;
-        <span class="hljs-keyword">if</span> ((v = get(key)) == <span class="hljs-keyword">null</span>) &#123;
-            V newValue;
-            <span class="hljs-keyword">if</span> ((newValue = mappingFunction.apply(key)) != <span class="hljs-keyword">null</span>) &#123;
-                put(key, newValue);
-                <span class="hljs-keyword">return</span> newValue;
+        <span class="hljs-keyword">if</span> ((v = <span class="hljs-keyword">get</span>(key)) == <span class="hljs-literal">null</span>) &#123;
+            V <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>;
+            <span class="hljs-keyword">if</span> ((<span class="hljs-keyword">new</span><span class="hljs-type">Value</span> = mappingFunction.apply(key)) != <span class="hljs-literal">null</span>) &#123;
+                put(key, <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>;
             &#125;
         &#125;
 
         <span class="hljs-keyword">return</span> v;
     &#125;</code></pre></div>
 <p>测试代码及输出如下:</p>
-<div class="hljs"><pre><code class="hljs java">
-    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span> </span>&#123;
-        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+<div class="hljs"><pre><code class="hljs angelscript">
+    @Test
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> test3() &#123;
+        Map&lt;Integer, Integer&gt; test = new HashMap&lt;&gt;();
         test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
         test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
 
         <span class="hljs-comment">// 1 存在,不做任何操作</span>
         test.computeIfAbsent(<span class="hljs-number">1</span>, key -&gt; key + <span class="hljs-number">2</span>);
         <span class="hljs-comment">// 3 不存在,将3 +2 = 5.</span>
         test.computeIfAbsent(<span class="hljs-number">3</span>, key -&gt; key + <span class="hljs-number">2</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
     &#125;
 
 ------------------------
@@ -394,77 +394,77 @@
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>, <span class="hljs-number">3</span>=<span class="hljs-number">5</span>&#125;</code></pre></div>
 
 <h3 id="V-computeIfPresent-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction"><a href="#V-computeIfPresent-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction" class="headerlink" title="V computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)"></a>V computeIfPresent(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)</h3><p>当key存在时,计算新值,如果新值不为空,则将新值写入,如果新值为空,则移除掉此key.返回新值或者null.</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">computeIfPresent</span><span class="hljs-params">(K key,</span></span>
-<span class="hljs-function"><span class="hljs-params">            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>&#123;
+<div class="hljs"><pre><code class="hljs haxe"><span class="hljs-keyword">default</span> V computeIfPresent(K key,
+            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction) &#123;
         Objects.requireNonNull(remappingFunction);
         V oldValue;
-        <span class="hljs-keyword">if</span> ((oldValue = get(key)) != <span class="hljs-keyword">null</span>) &#123;
-            V newValue = remappingFunction.apply(key, oldValue);
-            <span class="hljs-keyword">if</span> (newValue != <span class="hljs-keyword">null</span>) &#123;
-                put(key, newValue);
-                <span class="hljs-keyword">return</span> newValue;
+        <span class="hljs-keyword">if</span> ((oldValue = <span class="hljs-keyword">get</span>(key)) != <span class="hljs-literal">null</span>) &#123;
+            V <span class="hljs-keyword">new</span><span class="hljs-type">Value</span> = remappingFunction.apply(key, oldValue);
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span><span class="hljs-type">Value</span> != <span class="hljs-literal">null</span>) &#123;
+                put(key, <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>);
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>;
             &#125; <span class="hljs-keyword">else</span> &#123;
                 remove(key);
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
             &#125;
         &#125; <span class="hljs-keyword">else</span> &#123;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
         &#125;
     &#125;</code></pre></div>
 <p>测试代码及输出如下:</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test4</span><span class="hljs-params">()</span> </span>&#123;
-        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+<div class="hljs"><pre><code class="hljs angelscript">@Test
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> test4() &#123;
+        Map&lt;Integer, Integer&gt; test = new HashMap&lt;&gt;();
         test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
         test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
 
         <span class="hljs-comment">// 1 存在,计算</span>
         test.computeIfPresent(<span class="hljs-number">1</span>, (key, oldValue) -&gt; key + oldValue + <span class="hljs-number">2</span>);
         <span class="hljs-comment">// 3 不存在,不作操作</span>
         test.computeIfPresent(<span class="hljs-number">3</span>, (key, oldValue) -&gt; key + oldValue +  <span class="hljs-number">2</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
     &#125;
 -------------------------------
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">4</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;</code></pre></div>
 <p>这个方法基本上是上一个方法的存在版本,但是要注意传入的lambda,参数是两个,computeIfAbsent的lambda传入key,计算值. 而computeIfPresent传入key和旧的value,并且由他们两个计算得到新的值.</p>
 <h3 id="V-compute-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction"><a href="#V-compute-K-key-BiFunction-lt-super-K-super-V-extends-V-gt-remappingFunction" class="headerlink" title="V compute(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)"></a>V compute(K key, BiFunction&lt;? super K, ? super V, ? extends V&gt; remappingFunction)</h3><p>直接计算新值,新值为空,则删除key并且返回null,新值不为空则写入并且返回新值.</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">compute</span><span class="hljs-params">(K key,</span></span>
-<span class="hljs-function"><span class="hljs-params">            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>&#123;
+<div class="hljs"><pre><code class="hljs haxe"><span class="hljs-keyword">default</span> V compute(K key,
+            BiFunction&lt;? <span class="hljs-keyword">super</span> K, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction) &#123;
         Objects.requireNonNull(remappingFunction);
-        V oldValue = get(key);
+        V oldValue = <span class="hljs-keyword">get</span>(key);
 
-        V newValue = remappingFunction.apply(key, oldValue);
-        <span class="hljs-keyword">if</span> (newValue == <span class="hljs-keyword">null</span>) &#123;
+        V <span class="hljs-keyword">new</span><span class="hljs-type">Value</span> = remappingFunction.apply(key, oldValue);
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span><span class="hljs-type">Value</span> == <span class="hljs-literal">null</span>) &#123;
             <span class="hljs-comment">// delete mapping</span>
-            <span class="hljs-keyword">if</span> (oldValue != <span class="hljs-keyword">null</span> || containsKey(key)) &#123;
+            <span class="hljs-keyword">if</span> (oldValue != <span class="hljs-literal">null</span> || containsKey(key)) &#123;
                 <span class="hljs-comment">// something to remove</span>
                 remove(key);
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
             &#125; <span class="hljs-keyword">else</span> &#123;
                 <span class="hljs-comment">// nothing to do. Leave things as they were.</span>
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
             &#125;
         &#125; <span class="hljs-keyword">else</span> &#123;
             <span class="hljs-comment">// add or replace old mapping</span>
-            put(key, newValue);
-            <span class="hljs-keyword">return</span> newValue;
+            put(key, <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>;
         &#125;
     &#125;</code></pre></div>
 
 <p>测试代码及输出如下:</p>
-<div class="hljs"><pre><code class="hljs java"> <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test5</span><span class="hljs-params">()</span> </span>&#123;
-        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+<div class="hljs"><pre><code class="hljs angelscript"> @Test
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> test5() &#123;
+        Map&lt;Integer, Integer&gt; test = new HashMap&lt;&gt;();
         test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
         test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
 
         test.compute(<span class="hljs-number">1</span>, (key, oldValue) -&gt; key + <span class="hljs-number">2</span>);
         test.compute(<span class="hljs-number">3</span>, (key, oldValue) -&gt; key + <span class="hljs-number">2</span>);
-        test.compute(<span class="hljs-number">2</span>, (key, oldValue) -&gt; <span class="hljs-keyword">null</span>);
-        System.out.println(test.toString());
+        test.compute(<span class="hljs-number">2</span>, (key, oldValue) -&gt; <span class="hljs-literal">null</span>);
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
     &#125;
 ----------------
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
@@ -472,32 +472,32 @@
 <p>测试代码中对2进行compute-&gt;null,结果是2被删除.</p>
 <h3 id="V-merge-K-key-V-value-BiFunction-lt-super-V-super-V-extends-V-gt-remappingFunction"><a href="#V-merge-K-key-V-value-BiFunction-lt-super-V-super-V-extends-V-gt-remappingFunction" class="headerlink" title="V merge(K key, V value, BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction)"></a>V merge(K key, V value, BiFunction&lt;? super V, ? super V, ? extends V&gt; remappingFunction)</h3><p>使用旧值和给定的value来计算新值,如果新值为空,则删除key,不为空则写入并且返回.</p>
 <p>注意:如果旧值为空,也就是原有的key不存在,新值等于给定值,不会再进行计算.因此下方的测试代码3=10而不是12.</p>
-<div class="hljs"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">default</span> V <span class="hljs-title">merge</span><span class="hljs-params">(K key, V value,</span></span>
-<span class="hljs-function"><span class="hljs-params">            BiFunction&lt;? <span class="hljs-keyword">super</span> V, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction)</span> </span>&#123;
+<div class="hljs"><pre><code class="hljs haxe"><span class="hljs-keyword">default</span> V merge(K key, V value,
+            BiFunction&lt;? <span class="hljs-keyword">super</span> V, ? <span class="hljs-keyword">super</span> V, ? extends V&gt; remappingFunction) &#123;
         Objects.requireNonNull(remappingFunction);
         Objects.requireNonNull(value);
-        V oldValue = get(key);
-        V newValue = (oldValue == <span class="hljs-keyword">null</span>) ? value :
-                   remappingFunction.apply(oldValue, value);
-        <span class="hljs-keyword">if</span>(newValue == <span class="hljs-keyword">null</span>) &#123;
+        V oldValue = <span class="hljs-keyword">get</span>(key);
+        V <span class="hljs-keyword">new</span><span class="hljs-type">Value</span> = (oldValue == <span class="hljs-literal">null</span>) ? value :<span class="hljs-type"></span>
+<span class="hljs-type">                   remappingFunction</span>.apply(oldValue, value);
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">new</span><span class="hljs-type">Value</span> == <span class="hljs-literal">null</span>) &#123;
             remove(key);
         &#125; <span class="hljs-keyword">else</span> &#123;
-            put(key, newValue);
+            put(key, <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>);
         &#125;
-        <span class="hljs-keyword">return</span> newValue;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span><span class="hljs-type">Value</span>;
     &#125;</code></pre></div>
 <p>测试代码及输出如下:</p>
-<div class="hljs"><pre><code class="hljs java">    <span class="hljs-meta">@Test</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test6</span><span class="hljs-params">()</span> </span>&#123;
-        Map&lt;Integer, Integer&gt; test = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+<div class="hljs"><pre><code class="hljs angelscript">    @Test
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">void</span> test6() &#123;
+        Map&lt;Integer, Integer&gt; test = new HashMap&lt;&gt;();
         test.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
         test.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-        System.out.println(test.toString());
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
 
         test.merge(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, (v, oldV) -&gt; v + oldV + <span class="hljs-number">2</span>);
         test.merge(<span class="hljs-number">3</span>, <span class="hljs-number">10</span>, (v, oldV) -&gt; v + oldV + <span class="hljs-number">2</span>);
-        test.merge(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>, (v, oldV) -&gt; <span class="hljs-keyword">null</span>);
-        System.out.println(test.toString());
+        test.merge(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>, (v, oldV) -&gt; <span class="hljs-literal">null</span>);
+        System.<span class="hljs-keyword">out</span>.println(test.toString());
     &#125;
 --------------------------
 &#123;<span class="hljs-number">1</span>=<span class="hljs-number">1</span>, <span class="hljs-number">2</span>=<span class="hljs-number">2</span>&#125;
@@ -512,7 +512,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      <a class="hover-with-bg" href="/categories/Java8/">Java8</a>
                     
                   </div>
                 
@@ -521,6 +521,8 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Java8/">Java8</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Map/">Map</a>
                     
                   </div>
                 

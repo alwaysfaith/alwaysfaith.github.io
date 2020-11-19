@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -15,7 +15,7 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
-  <meta name="author" content="Square">
+  <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   <title>Docker部署jar - 108 Keywords</title>
 
@@ -60,7 +60,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Has Man a Future</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Square</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -162,7 +162,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/wallhaven-zm3mxw.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-06-02 00:00" pubdate>
-        2020年6月2日 凌晨
+      <time datetime="2020-06-02 10:00" pubdate>
+        2020年6月2日 上午
       </time>
     </span>
   
@@ -245,7 +245,7 @@
 </blockquote>
 <h5 id="4-创建好Dockerfile文件之后，执行命令-构建镜像："><a href="#4-创建好Dockerfile文件之后，执行命令-构建镜像：" class="headerlink" title="4. 创建好Dockerfile文件之后，执行命令 构建镜像："></a>4. 创建好Dockerfile文件之后，执行命令 构建镜像：</h5><div class="hljs"><pre><code class="hljs erlang">docker build -t square-root  .</code></pre></div>
 <p>注意最后的 .  表示 Dockerfile 文件在当前目录下<br>square-root  构建之后镜像名称</p>
-<h5 id="5-镜像构建成功运行容器"><a href="#5-镜像构建成功运行容器" class="headerlink" title="5. 镜像构建成功运行容器"></a>5. 镜像构建成功运行容器</h5><div class="hljs"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -d <span class="hljs-attribute">--restart</span>=always --name square -p 18091:18091  square-root  <span class="hljs-attribute">--restart</span>=always</code></pre></div>
+<h5 id="5-镜像构建成功运行容器"><a href="#5-镜像构建成功运行容器" class="headerlink" title="5. 镜像构建成功运行容器"></a>5. 镜像构建成功运行容器</h5><div class="hljs"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -d <span class="hljs-attribute">--restart</span>=always --name square -p 18094:18094  square-root  <span class="hljs-attribute">--restart</span>=always</code></pre></div>
 <p> –restart=always 这个表示docker容器在停止或服务器开机之后会自动重新启动</p>
 <h5 id="6-查看启动日志"><a href="#6-查看启动日志" class="headerlink" title="6. 查看启动日志"></a>6. 查看启动日志</h5><div class="hljs"><pre><code class="hljs clean">### 查看启动日志
 docker logs --tail <span class="hljs-number">-300</span>f square</code></pre></div>
@@ -286,7 +286,7 @@ StartLimitInterval=<span class="hljs-number">60</span>s
 </code></pre></div>
 <h5 id="2-保存配置重启Docker"><a href="#2-保存配置重启Docker" class="headerlink" title="2. 保存配置重启Docker"></a>2. 保存配置重启Docker</h5><div class="hljs"><pre><code class="hljs routeros">$ systemctl daemon-reload    
 $<span class="hljs-built_in"> service </span>docker restart</code></pre></div>
-<h5 id="3-安装Docker插件"><a href="#3-安装Docker插件" class="headerlink" title="3. 安装Docker插件"></a>3. 安装Docker插件</h5><p>点击 File-&gt;Settings-&gt;Plugins-&gt;Browse Repositories 如下<br><img src="https://alwaysfaith.github.io/img/hash/v2-3b5d910a510a359c0a0c69cb135b4996_720w.jpg" srcset="/img/loading.gif"><br>打开 File-&gt;Settings-&gt;Build,Execution,Deployment-&gt;Docker ，然后配置一下 Docker 的远程连接地址：<br><img src="https://alwaysfaith.github.io/img/hash/v2-3b5d910a510a359c0a0c69cb135b4996_720w.jpg" srcset="/img/loading.gif"></p>
+<h5 id="3-安装Docker插件"><a href="#3-安装Docker插件" class="headerlink" title="3. 安装Docker插件"></a>3. 安装Docker插件</h5><p>点击 File-&gt;Settings-&gt;Plugins-&gt;Browse Repositories 如下<br><img src="/img/hash/v2-3b5d910a510a359c0a0c69cb135b4996_720w.jpg" srcset="/img/loading.gif"><br>打开 File-&gt;Settings-&gt;Build,Execution,Deployment-&gt;Docker ，然后配置一下 Docker 的远程连接地址：<br><img src="/img/hash/v2-3b5d910a510a359c0a0c69cb135b4996_720w.jpg" srcset="/img/loading.gif"></p>
 <h5 id="4-配置-Dockerfile"><a href="#4-配置-Dockerfile" class="headerlink" title="4. 配置 Dockerfile"></a>4. 配置 Dockerfile</h5><div class="hljs"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> hub.c.<span class="hljs-number">163</span>.com/library/java:latest
 <span class="hljs-keyword">VOLUME</span><span class="bash"> /tmp</span>
 <span class="hljs-keyword">ADD</span><span class="bash"> target/docker-0.0.1-SNAPSHOT.jar app.jar</span>
@@ -334,11 +334,20 @@ $<span class="hljs-built_in"> service </span>docker restart</code></pre></div>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Docker/">Docker</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
                     
                   </div>
                 
