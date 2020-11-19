@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Druid解析SQL</title>
+    <link href="/2020/11/20/2020-11-20-Druid%E8%A7%A3%E6%9E%90SQL/"/>
+    <url>/2020/11/20/2020-11-20-Druid%E8%A7%A3%E6%9E%90SQL/</url>
+    
+    <content type="html"><![CDATA[<h5 id="1-问题描述："><a href="#1-问题描述：" class="headerlink" title="1. 问题描述："></a>1. 问题描述：</h5><p>执行命令</p><pre><code class="hljs awk">docker cp <span class="hljs-regexp">/etc/</span>localtime  zoo2:<span class="hljs-regexp">/etc/</span></code></pre><p>报错</p><pre><code class="hljs awk">Error response from daemon: Error processing tar file(<span class="hljs-keyword">exit</span> status <span class="hljs-number">1</span>): invalid symlink <span class="hljs-string">&quot;/etc/localtime&quot;</span> -&gt; <span class="hljs-string">&quot;../usr/share/zoneinfo/Asia/Shanghai&quot;</span></code></pre><h5 id="2-解决办法-一-："><a href="#2-解决办法-一-：" class="headerlink" title="2. 解决办法(一)："></a>2. 解决办法(一)：</h5><p>第一步：变换命令</p><pre><code class="hljs awk">docker cp <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/zoneinfo/</span>Asia<span class="hljs-regexp">/Shanghai zoo2:/</span>etc/localtime</code></pre><p>第二步：重启容器</p><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> restart  zoo<span class="hljs-number">2</span></code></pre><p>第三步：验证是否修改成功</p><pre><code class="hljs awk">docker exec -it  zoo2 <span class="hljs-regexp">/bin/</span>bash</code></pre><p>回车后输入date即可</p><h5 id="3-解决办法（二）："><a href="#3-解决办法（二）：" class="headerlink" title="3. 解决办法（二）："></a>3. 解决办法（二）：</h5><p>build 镜像添加命令</p><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> java:<span class="hljs-number">8</span><span class="hljs-keyword">MAINTAINER</span> Caixin<span class="hljs-keyword">ADD</span><span class="bash"> square-root.jar square-root.jar</span><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span><span class="hljs-keyword">RUN</span><span class="bash"> /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;Asia/Shanghai&#x27;</span> &gt;/etc/timezone</span><span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">&quot;java&quot;</span>,<span class="hljs-string">&quot;-Djava.security.egd=file:/dev/./urandom&quot;</span>,<span class="hljs-string">&quot;-jar&quot;</span>,<span class="hljs-string">&quot;/square-root.jar&quot;</span>]</span></code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Docker</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Docker容器时间不匹配</title>
     <link href="/2020/11/19/2020-11-19-Docker%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4%E4%B8%8D%E5%8C%B9%E9%85%8D/"/>
     <url>/2020/11/19/2020-11-19-Docker%E5%AE%B9%E5%99%A8%E6%97%B6%E9%97%B4%E4%B8%8D%E5%8C%B9%E9%85%8D/</url>
@@ -130,9 +157,9 @@
       
       <tag>Linux</tag>
       
-      <tag>Docker</tag>
-      
       <tag>RocketMq</tag>
+      
+      <tag>Docker</tag>
       
     </tags>
     
@@ -350,9 +377,9 @@
     
     <tags>
       
-      <tag>Redis</tag>
-      
       <tag>Java</tag>
+      
+      <tag>Redis</tag>
       
     </tags>
     
